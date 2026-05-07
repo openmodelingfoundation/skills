@@ -1,8 +1,6 @@
 # Good Modeling Practice
 
-A modular skill framework for socio-environmental, computational, and complex adaptive systems modeling.
-
-This skill operationalizes transparent, uncertainty-aware, reproducible, and context-sensitive modeling practice across the full modeling lifecycle.
+A modular skill framework for computational socio-environmental and complex adaptive systems modeling.
 
 ## Purpose and Scope
 
@@ -43,6 +41,11 @@ Applicable domains: research workflows, decision support, computational social s
 
 This skill provides the foundational framework that the other skills assess against.
 
+## Conformance Language
+
+- **MUST / REQUIRED:** Flag absence as a deficiency; request justification.
+- **SHOULD:** Recommend but accept reasoned omission.
+
 ## Core Modeling Principles
 
 All modeling workflows MUST:
@@ -67,7 +70,7 @@ The following are prohibited:
 * opaque preprocessing pipelines
 * overfitted evaluation claims
 * unqualified extrapolation beyond modeled conditions
-* superficial stakeholder participation
+* superficial stakeholder participation (participation lacking meaningful influence on model design decisions and interpretation)
 
 ---
 
