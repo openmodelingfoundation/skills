@@ -6,9 +6,34 @@ This repository hosts a curated collection of [Agent Skills](https://agentskills
 
 ## Quick Start
 
+## Accessing a Coding Agent
+
+These skills are designed for coding-capable AI agents that can:
+
+- read skill instructions from `SKILL.md`
+- execute shell commands
+- inspect and modify repositories
+- run local tools such as Python, Git, and Docker
+
+Compatible environments include:
+
+- [Visual Studio Code](https://code.visualstudio.com/)
+- [vscodium](https://vscodium.com/) requires additional effort to get a coding agent set up like [GitHub Copilot](https://github.com/VSCodium/vscodium/discussions/1487)  
+- [ChatGPT with coding tools enabled](https://chatgpt.com/codex/)
+- [Claude Code](https://code.claude.com/docs/en/overview)
+- [Cursor Agent](https://cursor.com/)
+- (contributions welcome, this is a rapidly evolving space)
+
+At minimum, your agent should support:
+- filesystem access
+- terminal execution
+- multi-file editing
+
 ### Install Node.js LTS with nvm (WSL, macOS, Linux)
 
-`npx skills ...` requires Node.js. Use the node version manager `nvm` to install and manage Node versions without `sudo`.
+After you have access to a coding agent you'll want to set up Node.js on your system to use the standard `npx skills ...` to manage your skills collections. Agent skills are just a pile of files on your filesystem at the end of the day.
+
+`npx skills ...` requires Node.js. We recommend using the node version manager `nvm` to flexibly install and manage Node versions.
 
 Security best practices:
 
@@ -94,14 +119,62 @@ Or install from GitHub directly:
 npx skills add https://github.com/comses/skills
 ```
 
-### Use a Skill in Your Coding Agent
+### Try the skills out
 
-Once installed, mention the skill by name in your conversation:
-- *"Use the document skill to generate ODD+2 documentation for my ABM"*
+#### Open your modeling project in a coding agent
+
+Examples: 
+
+- Cursor: open the project folder and enable Agent mode
+- Claude Code: run `claude` in the project root
+- ChatGPT: open the repository in a coding-enabled workspace
+
+#### Verify the agent can discover installed skills
+
+Try:
+
+```text
+What skills are available from the comses/skills collection?
+```
+or:
+
+```text
+Read the installed skills and summarize when each should be used.
+```
+
+#### Run a small task
+
+Generally the skills will always be triggered if you reference them by name, or you can use their associated slash command, e.g., 
+
+Examples:
+
+```text
+/document generate ODD+2 documentation for this model.
+```
+
+or
+
+```text
+Use the document skill to generate ODD+2 documentation for this model.
+```
+
+```text
+/peer-review evaluate this repository for reproducibility readiness
+```
+
+or
+
+```text
+Use the peer-review skill to evaluate this repository for reproducibility readiness.
+```
+
+etc.
+
+Other examples:
+
 - *"Set up an OSPool batch scaffolder for my sensitivity analysis"*
-- *"Generate a FAIR4RS publication checklist for my model outputs"*
-
-See the Agent Skills documentation for your platform for details on skill usage.
+- *"Generate a FAIR4RS publication checklist for this model"*
+- *"Generate a FAIR publication checklist for my model's output data"*
 
 ## Skills Overview
 
