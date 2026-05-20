@@ -98,7 +98,7 @@ Widely adopted practical reference for ABM design, implementation, analysis, and
 
 ---
 
-# TRACE and Model Evaluation
+# Model Evaluation and Interpretation
 
 ## Grimm et al. (2014)
 
@@ -135,6 +135,18 @@ Oreskes, N., Shrader-Frechette, K., & Belitz, K. (1994). Verification, validatio
 Seminal critique of strong validation claims in open-system scientific modeling.
 
 ---
+
+## Tufte (1974)
+
+Tufte, E.R. (1974). *Data Analysis for Politics and Policy*. Prentice-Hall.
+
+Early and influential treatment of applied quantitative reasoning for policy analysis, emphasizing residual analysis, model interpretation, causal reasoning, and careful use of evidence.
+
+## Tufte (1983)
+
+Tufte, E.R. (1983). *The Visual Display of Quantitative Information*. Graphics Press.
+
+The classic book on statistical graphics, charts, tables. Theory and practice in the design of data graphics, 250 illustrations of the best (and a few of the worst) statistical graphics, with detailed analysis of how to display data for precise, effective, quick analysis. 
 
 # Uncertainty and Sensitivity Analysis
 
@@ -406,12 +418,3 @@ Stilgoe, J., Owen, R., & Macnaghten, P. (2013). Developing a framework for respo
 [https://doi.org/10.1016/j.respol.2013.05.008](https://doi.org/10.1016/j.respol.2013.05.008)
 
 Influential framework for responsible innovation and governance.
-
----
-
-## Funtowicz & Ravetz (1990)
-
-Funtowicz, S.O., & Ravetz, J.R. (1990). *Uncertainty and Quality in Science for Policy*. Springer.
-[https://doi.org/10.1007/978-94-009-0621-1](https://doi.org/10.1007/978-94-009-0621-1)
-
-Foundational text for post-normal science, uncertainty, and policy-oriented scientific reasoning.

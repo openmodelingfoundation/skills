@@ -1,3 +1,24 @@
+---
+name: assistant
+description: |
+  Guide modelers in applying good modeling practice across the full computational modeling lifecycle,
+  from problem framing through evaluation, uncertainty disclosure, governance, and maintenance.
+
+  Use this skill when users want lifecycle guidance, quality self-assessment, required modeling
+  deliverables, or protocol-specific checks for ABM, uncertainty, reproducibility, ethics,
+  participatory modeling, and deep uncertainty.
+
+  Expected output: staged modeling guidance, identified deficiencies against required practices,
+  and a concrete set of required artifacts and review checks.
+license: MIT
+compatibility: Works with agent-based, system dynamics, statistical, simulation, and hybrid models
+metadata:
+  domain: computational-modeling
+  maturity: beta
+  audience: researchers who code, research software engineers
+  category: methodology
+---
+
 # Good Modeling Practice
 
 A modular skill framework for computational socio-environmental and complex adaptive systems modeling.
@@ -8,12 +29,14 @@ Help modelers learn, adopt, and self-assess against established good modeling pr
 
 Use this skill to:
 
-* structure scientific and policy-oriented modeling workflows,
-* improve transparency and reproducibility,
-* document assumptions and uncertainties,
-* support participatory and ethical modeling practices,
-* standardize modeling deliverables,
-* enable auditability and machine-assisted review.
+* structure scientific and policy-oriented modeling workflows
+* improve transparency and reproducibility
+* document assumptions and uncertainties
+* support participatory and ethical modeling practices
+* standardize modeling deliverables
+* guide iterative improvement of model quality and documentation
+* support peer review and publication readiness
+* enable auditability and machine-assisted review
 
 Applicable model types:
 

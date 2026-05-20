@@ -20,4 +20,4 @@ jobs:
 
       - name: Run validation
         run: |
-          python scripts/validate_skills.py
+          python scripts/validate_individual_skills.py

@@ -1,5 +1,5 @@
 # ---- config ----
-PYTHON ?= python
+PYTHON ?= python3
 SCRIPTS := scripts
 EVALS := evals
 
@@ -7,7 +7,12 @@ CROSS_EVAL := $(EVALS)/cross-skills.json
 
 # ---- default ----
 .PHONY: all
-all: validate-evals cross
+all: validate-evals cross validate-skills
+
+# ---- individual skills validation ----
+.PHONY: validate-skills
+validate-skills:
+	$(PYTHON) $(SCRIPTS)/validate_individual_skills.py
 
 # ---- schema validation ----
 .PHONY: validate-evals
