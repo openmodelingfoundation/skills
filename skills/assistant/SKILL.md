@@ -50,9 +50,16 @@ Applicable domains: research workflows, decision support, computational social s
 
 ## Activation Logic
 
+Primary responsibilities:
+- classify request
+- identify lifecycle stage
+- determine applicable guidance
+- recommend specialist skills
+- synthesize results
+
 - If user is starting a new modeling project → begin with Problem Framing and Stakeholder Analysis
 - If user has an existing model and wants quality feedback → route to Review and Enforcement
-- If user asks about a specific concern (uncertainty, ethics, reproducibility) → route to the relevant protocol
+- If user asks about a specific concern (uncertainty, ethics, reproducibility) → route to the relevant guidance
 - If user wants to produce deliverables → route to Required Deliverables and templates
 - If user asks "is my model ready for publication" → use the peer-review skill instead
 
@@ -130,20 +137,20 @@ See:
 
 ---
 
-## Protocol Routing
+## Guidance Routing
 
-Use specialized protocols when applicable.
+Use specialized guidance when applicable.
 
-| Context                                | Required Protocol               |
+| Context                                | Required Guidance               |
 | -------------------------------------- | ------------------------------- |
-| Uncertainty analysis                   | `protocols/uncertainty.md`      |
-| Agent-based modeling                   | `protocols/abm.md`              |
-| Participatory modeling                 | `protocols/participatory.md`    |
-| Reproducibility and FAIR workflows     | `protocols/reproducibility.md`  |
-| Ethics and governance review           | `protocols/ethics.md`           |
-| Deep uncertainty and adaptive planning | `protocols/deep_uncertainty.md` |
+| Uncertainty analysis                   | `references/guidance/uncertainty.md`      |
+| Agent-based modeling                   | `references/guidance/abm.md`              |
+| Participatory modeling                 | `references/guidance/participatory.md`    |
+| Reproducibility and FAIR workflows     | `references/guidance/reproducibility.md`  |
+| Ethics and governance review           | `references/guidance/ethics.md`           |
+| Deep uncertainty and adaptive planning | `references/guidance/deep-uncertainty.md` |
 
-Protocols define:
+Guidance define:
 
 - minimum documentation requirements,
 - review procedures,
@@ -157,19 +164,19 @@ Protocols define:
 
 The following artifacts are REQUIRED unless explicitly justified otherwise:
 
-- `model_card.md`
-- `conceptual_model.md`
-- `assumptions.md`
-- `uncertainty_register.md`
-- `stakeholder_register.md`
-- `evaluation_report.md`
-- `provenance_manifest.json`
-- `ethics_impact_statement.md`
-- `maintenance_plan.md`
+- `model_card.md`: summarize model design, performance, and limitations (domain-specific)
+- `conceptual_model.md`: describe model purpose, scope, and assumptions
+- `assumptions.md`: make assumptions explicit for later review
+- `uncertainty_register.md`: document parameter, structural, and scenario uncertainty
+- `stakeholder_register.md`: identify affected stakeholders and participatory processes
+- `evaluation_report.md`: summarize evaluation context, methods, and results
+- `provenance_manifest.json`: record data, code, and workflow provenance
+- `ethics_impact_statement.md`: document ethical considerations, representational harms, and vulnerable populations
+- `maintenance_plan.md`: (optional) describe stewardship, versioning, and plans for long-term maintenance
 
 ABMs additionally REQUIRE:
 
-- `abm_odd_spec.md`
+- `abm_spec.md`
 
 All deliverables SHOULD:
 
@@ -203,7 +210,7 @@ Recommended practices:
 - containerized or pinned environments,
 - FAIR-aligned metadata.
 
-See `protocols/reproducibility.md`.
+See `references/guidance/reproducibility.md`.
 
 ---
 
@@ -226,8 +233,8 @@ Predictive confidence MUST NOT be overstated.
 
 See:
 
-- `protocols/uncertainty.md`
-- `protocols/deep_uncertainty.md`
+- `references/guidance/uncertainty.md`
+- `references/guidance/deep-uncertainty.md`
 
 ---
 
@@ -259,8 +266,8 @@ Projects with governance, policy, or societal implications MUST:
 
 See:
 
-- `protocols/participatory.md`
-- `protocols/ethics.md`
+- `references/guidance/participatory.md`
+- `references/guidance/ethics.md`
 
 ---
 

@@ -53,6 +53,32 @@ Provides an evaluation-oriented framework for assessing environmental modeling e
 
 # Model Documentation and Agent-Based Modeling
 
+## Gilbert (2019)
+
+Gilbert, N. (2019). _Agent-Based Models_ (2nd ed.). SAGE Publications.
+
+Comprehensive introduction to agent-based modeling, covering conceptual foundations, design principles, and practical implementation.
+
+## Epstein & Axtell (1996)
+
+Epstein, J.M., & Axtell, R. (1996). _Growing Artificial Societies: Social Science from the Bottom Up_. MIT Press.
+
+Foundational work demonstrating the potential of agent-based modeling to explore social phenomena through bottom-up simulation.
+
+## Epstein (1999)
+
+Epstein, J.M. (1999). Agent-based computational models and generative social science. _Complexity_, 4(5), 41–60.
+[https://doi.org/10.1002/(SICI)1099-0526(199905/06)4:5<41::AID-CPLX7>3.0.CO;2-F](https://doi.org/10.1002/(SICI)1099-0526(199905/06)4:5<41::AID-CPLX7>3.0.CO;2-F)
+
+Seminal paper advocating for generative explanations in social science through agent-based modeling.
+
+## Grimm et al. (2005)
+
+Grimm, V., Revilla, E., Berger, U., Jeltsch, F., Mooij, W.M., Railsback, S.F., Thulke, H.-H., Weiner, J., Wiegand, T., & DeAngelis, D.L. (2005). Pattern-Oriented Modelling of Agent-Based Complex Systems: Lessons from Ecology. _Science_, 310(5750), 987–991.
+[https://doi.org/10.1126/science.1116681](https://doi.org/10.1126/science.1116681)
+
+Introduces pattern-oriented modeling as a strategy for developing and analyzing agent-based models in ecology and complex systems.
+
 ## Grimm et al. (2006)
 
 Grimm, V., Berger, U., Bastiansen, F., Eliassen, S., Ginot, V., Giske, J., Goss-Custard, J., Grand, T., Heinz, S.K., Huse, G., Huth, A., Jepsen, J.U., Jørgensen, C., Mooij, W.M., Müller, B., Pe'er, G., Piou, C., Railsback, S.F., Robbins, A.M., Robbins, M.M., Rossmanith, E., Rüger, N., Strand, E., Souissi, S., Stillman, R.A., Vabø, R., Visser, U., & DeAngelis, D.L. (2006). A standard protocol for describing individual-based and agent-based models. _Ecological Modelling_, 198(1–2), 115–126.
@@ -99,6 +125,13 @@ Widely adopted practical reference for ABM design, implementation, analysis, and
 ---
 
 # Model Evaluation and Interpretation
+
+## Windrum et al. (2007)
+
+Windrum, P., Fagiolo, G., & Moneta, A. (2007). Empirical validation of agent-based models: Alternatives and prospects. _Journal of Artificial Societies and Social Simulation_, 10(2), 8.
+[https://doi.org/10.18564/jasss.429](https://doi.org/10.18564/jasss.429)
+
+Discusses methods and challenges for empirically validating agent-based models in social science.
 
 ## Grimm et al. (2014)
 
@@ -149,6 +182,20 @@ Tufte, E.R. (1983). _The Visual Display of Quantitative Information_. Graphics P
 The classic book on statistical graphics, charts, tables. Theory and practice in the design of data graphics, 250 illustrations of the best (and a few of the worst) statistical graphics, with detailed analysis of how to display data for precise, effective, quick analysis.
 
 # Uncertainty and Sensitivity Analysis
+
+## Walker et al. (2003)
+
+Walker, W.E., Harremoës, P., Rotmans, J., van der Sluijs, J.P., van Asselt, M.B.A., Janssen, P., & Krayer von Krauss, M.P. (2003). Defining uncertainty: A conceptual basis for uncertainty management in model-based decision support. _Integrated Assessment_, 4(1), 5–17.
+[https://doi.org/10.1076/IAIJ.4.1.5.16466](https://doi.org/10.1076/IAIJ.4.1.5.16466)
+
+Widely cited taxonomy and conceptual framing of uncertainty in decision-support modeling.
+
+## Beven (2006)
+
+Beven, K. (2006). A manifesto for the equifinality thesis. _Journal of Hydrology_, 320(1–2), 18–36.
+[https://doi.org/10.1016/j.jhydrol.2005.07.007](https://doi.org/10.1016/j.jhydrol.2005.07.007)
+
+Influential discussion of equifinality, uncertainty, and limits of calibration-based certainty claims.
 
 ## Beven & Binley (1992)
 
@@ -282,6 +329,13 @@ Highly influential practical guidance for reproducible computational workflows.
 
 # Decision Making Under Deep Uncertainty
 
+## Bankes (1993)
+
+Bankes, S.C. (1993). Exploratory modeling for policy analysis. _Operations Research_, 41(3), 435–449.
+[https://doi.org/10.1287/opre.41.3.435](https://doi.org/10.1287/opre.41.3.435)
+
+Foundational paper on exploratory modeling for policy analysis under uncertainty.
+
 ## Lempert et al. (2003)
 
 Lempert, R.J., Popper, S.W., & Bankes, S.C. (2003). _Shaping the Next One Hundred Years: New Methods for Quantitative, Long-Term Policy Analysis_. RAND Corporation.
@@ -305,7 +359,7 @@ Foundational paper on exploratory modeling for policy analysis under uncertainty
 Haasnoot, M., Kwakkel, J.H., Walker, W.E., & ter Maat, J. (2013). Dynamic adaptive policy pathways: A method for crafting robust decisions for a deeply uncertain world. _Global Environmental Change_, 23(2), 485–498.
 [https://doi.org/10.1016/j.gloenvcha.2012.12.006](https://doi.org/10.1016/j.gloenvcha.2012.12.006)
 
-Introduces Dynamic Adaptive Policy Pathways for adaptive decision support.
+Introduces Dynamic Adaptive Policy Pathways for adaptive planning under deep uncertainty.
 
 ---
 
@@ -323,7 +377,7 @@ Concise overview of deep uncertainty concepts and implications for decision supp
 Kwakkel, J.H., & Haasnoot, M. (2019). Supporting DMDU: A taxonomy of approaches and tools. In V.A.W.J. Marchau, W.E. Walker, P.J.T.M. Bloemen, & S.W. Popper (Eds.), _Decision Making under Deep Uncertainty_ (pp. 355–374). Springer.
 [https://doi.org/10.1007/978-3-030-05252-2_15](https://doi.org/10.1007/978-3-030-05252-2_15)
 
-Taxonomy and synthesis of methods supporting decision making under deep uncertainty.
+Provides a practical taxonomy for selecting appropriate methods based on the nature of the uncertainty and the decision context.
 
 ---
 
@@ -335,6 +389,14 @@ Marchau, V.A.W.J., Walker, W.E., Bloemen, P.J.T.M., & Popper, S.W. (Eds.). (2019
 Comprehensive reference volume covering DMDU theory and applications.
 
 ---
+
+# Complex Systems
+
+## Miller & Page (2007)
+
+Miller, J.H., & Page, S.E. (2007). _Complex Adaptive Systems: An Introduction to Computational Models of Social Life_. Princeton University Press.
+
+Foundational textbook introducing complex adaptive systems and agent-based modeling for social science applications.
 
 # Participatory and Stakeholder-Engaged Modeling
 
