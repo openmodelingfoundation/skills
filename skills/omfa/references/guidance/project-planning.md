@@ -155,6 +155,8 @@ Optional supporting artifacts:
 
 These artifacts should remain synchronized with the conceptual model and evolve throughout the modeling lifecycle.
 
+Place planning artifacts under `artifacts/` at the project root. If `artifacts/` is created as part of planning, create `artifacts/README.md` stating these are living documents created early, revised throughout the project, and gated by explicit status/review triggers.
+
 ---
 
 ## Common Failure Patterns

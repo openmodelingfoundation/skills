@@ -149,6 +149,8 @@ Maintain traceability between stakeholder input and consequential modeling decis
 - `scenario-definitions.md`
 - `model-review.md`
 
+Place these artifacts under `artifacts/` at the project root using predictable, semantic filenames. If `artifacts/` is created during this work, also create `artifacts/README.md` describing artifacts as living documents created early, revised throughout the project, and gated by explicit status/review triggers.
+
 ---
 
 ## Common Failure Patterns

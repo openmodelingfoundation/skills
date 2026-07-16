@@ -139,7 +139,7 @@ Generate or maintain, as appropriate:
 - `data-flow.md`
 - `verification-plan.md`
 
-Use predictable, semantic filenames. These artifacts should support downstream implementation, documentation, review, and reproducibility.
+Use predictable, semantic filenames under `artifacts/` at the project root. These artifacts should support downstream implementation, documentation, review, and reproducibility. If `artifacts/` is created during this work, also create `artifacts/README.md` describing artifacts as living documents created early, revised throughout the project, and gated by explicit status/review triggers.
 
 ---
 

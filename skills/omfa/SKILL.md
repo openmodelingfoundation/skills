@@ -139,19 +139,27 @@ Guidance modules encode expert methodological reasoning by helping agents:
 
 Required deliverables are reviewable scientific artifacts that externalize assumptions, decisions, evidence, and evaluation for downstream collaborators, tools, and reviewers. The following artifacts are REQUIRED unless explicitly justified otherwise:
 
-- `model_card.md`: summarize model design, performance, and limitations (domain-specific)
-- `conceptual_model.md`: describe model purpose, scope, and assumptions
-- `assumptions.md`: make assumptions explicit for later review
-- `uncertainty_register.md`: document parameter, structural, and scenario uncertainty
-- `stakeholder_register.md`: identify affected stakeholders and participatory processes
-- `evaluation_report.md`: summarize evaluation context, methods, and results
-- `provenance_manifest.json`: record data, code, and workflow provenance
-- `ethics_impact_statement.md`: document ethical considerations, representational harms, and vulnerable populations
-- `maintenance_plan.md`: (optional) describe stewardship, versioning, and plans for long-term maintenance
+All reviewable artifacts MUST be stored under an `artifacts/` directory at the project root.
+
+When `artifacts/` is first created, add `artifacts/README.md` that states:
+
+- artifacts are living documents,
+- artifacts are created early and revised throughout the project lifecycle,
+- downstream use is gated by explicit status/review triggers.
+
+- `artifacts/model_card.md`: summarize model design, performance, and limitations (domain-specific)
+- `artifacts/conceptual_model.md`: describe model purpose, scope, and assumptions
+- `artifacts/assumptions.md`: make assumptions explicit for later review
+- `artifacts/uncertainty_register.md`: document parameter, structural, and scenario uncertainty
+- `artifacts/stakeholder_register.md`: identify affected stakeholders and participatory processes
+- `artifacts/evaluation_report.md`: summarize evaluation context, methods, and results
+- `artifacts/provenance_manifest.json`: record data, code, and workflow provenance
+- `artifacts/ethics_impact_statement.md`: document ethical considerations, representational harms, and vulnerable populations
+- `artifacts/maintenance_plan.md`: (optional) describe stewardship, versioning, and plans for long-term maintenance
 
 ABMs additionally REQUIRE:
 
-- `abm_spec.md`
+- `artifacts/abm_spec.md`
 
 All deliverables SHOULD:
 

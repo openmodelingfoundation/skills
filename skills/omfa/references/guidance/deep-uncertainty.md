@@ -90,7 +90,7 @@ Generate or maintain, as appropriate:
 * `adaptation-pathways.md`
 * `stakeholder-assumptions.md`
 
-Use predictable, semantic filenames. These artifacts should support downstream review, documentation, and reproducibility.
+Use predictable, semantic filenames under `artifacts/` at the project root. These artifacts should support downstream review, documentation, and reproducibility. If `artifacts/` is created during this work, also create `artifacts/README.md` describing artifacts as living documents created early, revised throughout the project, and gated by explicit status/review triggers.
 
 ---
 
