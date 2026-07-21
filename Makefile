@@ -49,15 +49,24 @@ full: validate-evals cross report
 .PHONY: ci
 ci:
 	@echo "=== Running CI pipeline ==="
+	$(MAKE) lint
 	$(MAKE) validate-evals
 	$(MAKE) cross
 	$(MAKE) report
 	@echo "=== CI completed ==="
+
+# ---- markdown lint globs ----
+LINT_GLOBS := docs/agent-skills-creation-reference.md docs/SKILL-TEMPLATE.md docs/SKILLS-ASSESSMENT.md docs/VALIDATION.md docs/data-analysis-skills.md docs/roadmap.md
 
 format:
 	docker compose run --rm tools \
 		'prettier --write **/*.{md,json}'
 
 lint:
+	docker compose run --rm tools \
+		'markdownlint-cli2 $(LINT_GLOBS)'
+
+.PHONY: lint-all
+lint-all:
 	docker compose run --rm tools \
 		'markdownlint-cli2 **/*.md'

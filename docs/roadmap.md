@@ -6,8 +6,8 @@ The repository is evolving from a collection of standalone agent skills into a c
 
 ## Tracking Issues
 
-- https://github.com/comses/skills/issues/1
-- https://github.com/comses/planning/issues/357
+- [skills issue #1](https://github.com/comses/skills/issues/1)
+- [planning issue #357](https://github.com/comses/planning/issues/357)
 
 ## Initial Release
 
@@ -25,8 +25,6 @@ This roadmap is a living document and will be updated regularly.
 - **ospool** (alpha): OSPool batch and parameter sweep scaffolding
 - **hpc** (alpha): HPC cluster job submission and arrays
 - **peer-review** (alpha): Computational model peer-review readiness assessment using required criteria and supporting quality indicators
-
-### Outcomes
 
 ### Outcomes
 
@@ -79,7 +77,7 @@ The repository enables researchers to:
 
 **Outputs:**
 
-```
+```text
 /capsule/
   Dockerfile | *.def
   experiment.rpz (optional)
@@ -158,15 +156,15 @@ Prefer **containers for portability**, use **tracing to recover hidden dependenc
 
 **Reference tooling:**
 
-- https://github.com/stencila/dockta
+- [dockta](https://github.com/stencila/dockta)
 
-* auto-detect entrypoint from:
+- auto-detect entrypoint from:
   - shell history (if available)
   - Makefile / scripts
-* suggest:
+- suggest:
   - isolate run directory
   - minimize external state
-* warn on:
+- warn on:
   - large data (> threshold)
   - remote services (not captured by ReproZip; common limitation)
 
@@ -187,7 +185,7 @@ Treat ReproZip as a **low-friction onboarding layer**: capture first, then progr
 
 **Status:** In planning
 
-### Planned Skills
+### Planned Skills (Analysis & Validation)
 
 #### **parameter-sweep-analysis** (alpha)
 
@@ -241,7 +239,7 @@ Convert Jupyter/Quarto notebooks into containerized, version-controlled, reprodu
 
 **Status:** Conceptual
 
-### Planned Skills
+### Planned Skills (Advanced Integration)
 
 #### **agentpy-scaffolder** (alpha)
 
@@ -277,7 +275,7 @@ Orchestrate ensembles of models (different implementations, parameters, or struc
 
 ---
 
-# Guidance Library Roadmap
+## Guidance Library Roadmap
 
 This document captures architectural decisions and prioritized future work for the computational modeling guidance library.
 
@@ -323,7 +321,7 @@ Future additions should preserve the following design principles:
 
 ---
 
-# Priority Backlog
+## Priority Backlog
 
 ## High Priority
 

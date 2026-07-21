@@ -25,7 +25,7 @@ Skills undergo validation at multiple layers to ensure quality and reliability:
 
 ## Best-Practice Alignment Checks
 
-Align each skill with guidance from: https://agentskills.io/skill-creation/best-practices
+Align each skill with guidance from [Agent Skills Best Practices](https://agentskills.io/skill-creation/best-practices).
 
 - [ ] Skill is grounded in real project expertise (task traces, runbooks, issues, fixes), not generic advice
 - [ ] Skill scope is one coherent unit of work that composes with other skills
@@ -302,7 +302,7 @@ In Claude Code or Claude.ai:
 
 **Example test interaction:**
 
-```
+```text
 User: "Use the document skill to generate ODD for this simple ABM..."
 [Paste model code]
 

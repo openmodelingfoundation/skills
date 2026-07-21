@@ -49,7 +49,7 @@ These principles govern all implementation decisions. When they conflict, earlie
 
 ### 3.1 Component Overview
 
-```
+```text
 User Request
      │
      ▼
@@ -371,7 +371,7 @@ inputs:
 
 Every skill execution produces:
 
-```
+```text
 outputs/
 ├── workflow.py           # executable reproduction script
 ├── environment.yml       # pinned environment spec
@@ -447,7 +447,7 @@ A skill is ready for integration when it:
 
 ## 11. Repository Structure
 
-```
+```text
 analysis-skills/
 ├── skills/
 │   ├── analysis-orchestrator/

@@ -116,7 +116,7 @@ If validation fails at this step:
 
 **Output:** <one-line description of what the skill produces>
 
-```
+```text
 <Short concrete snippet — a few lines of input code, config, or output
 that makes the expected behavior concrete. Replace or extend this example
 with something real when refining the skill.>

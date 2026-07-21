@@ -317,7 +317,7 @@ Refine based on:
 
 ## Directory layout (reference)
 
-```
+```text
 my-skill/
 ├── SKILL.md
 ├── scripts/        # executable logic
@@ -360,9 +360,9 @@ Encode how experienced practitioners make, justify, and document consequential d
 
 This document was heavily influenced by the following:
 
-[1]: https://agentskills.io/home "Agent Skills Overview - Agent Skills"
-[2]: https://agentskills.io/skill-creation/best-practices "Best practices for skill creators - Agent Skills"
-[3]: https://agentskills.io/specification "Specification - Agent Skills"
-[4]: https://agentskills.io/skill-creation/optimizing-descriptions "Optimizing skill descriptions - Agent Skills"
-[5]: https://agentskills.io/skill-creation/using-scripts "Using scripts in skills - Agent Skills"
-[6]: https://agentskills.io/skill-creation/evaluating-skills "Evaluating skill output quality - Agent Skills"
+- [Agent Skills Overview](https://agentskills.io/home)
+- [Best Practices for Skill Creators](https://agentskills.io/skill-creation/best-practices)
+- [Specification](https://agentskills.io/specification)
+- [Optimizing Skill Descriptions](https://agentskills.io/skill-creation/optimizing-descriptions)
+- [Using Scripts in Skills](https://agentskills.io/skill-creation/using-scripts)
+- [Evaluating Skill Output Quality](https://agentskills.io/skill-creation/evaluating-skills)
