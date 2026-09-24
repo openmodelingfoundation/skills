@@ -1,35 +1,43 @@
-# Installing OMF Skills
+# Install OMF Skills
 
-OMF skills are files loaded by a coding agent. They do not install themselves.
-Use a coding agent that supports Agent Skills, or use the [Skills CLI](https://www.skills.sh/docs/cli). The repository's published skills live under `skills/`.
+OMF Skills give your coding agent guidance for computational modeling. Choose the installation method that fits how you work:
 
-## Install through a coding agent
+- **Skills CLI:** The quickest way to install skills into a project or your user account. Requires Node.js.
+- **Your coding agent:** Ask an agent that supports [Agent Skills](https://agentskills.io/clients) to install them for you.
+- **Git:** Use a specific release when you need to know exactly which version you used. This method does not require Node.js.
 
-Ask your agent to install the skills from `https://github.com/openmodelingfoundation/skills` for your project or user account, following that agent's skill installation instructions. Ask it to list the installed skills afterward. Installation paths and reload behavior depend on the agent.
+The skills available for installation are in the repository's `skills/` directory.
 
-## Install with Skills CLI
+## Use the Skills CLI
 
-With a supported coding agent and Node.js available, run from your project directory:
+From your project directory, run:
 
 ```bash
 npx skills add openmodelingfoundation/skills
 ```
 
-The [upstream CLI reference](https://www.skills.sh/docs/cli) documents the `npx skills add owner/repo` form. Follow its prompts to select the skills and target agent. For user-wide installation, the [upstream CLI help](https://github.com/vercel-labs/skills/blob/main/src/cli.ts) documents `-g`:
+Follow the prompts to choose the skills and the agent that should use them. To install them for your user account instead, add `-g`:
 
 ```bash
 npx skills add openmodelingfoundation/skills -g
 ```
 
-Check the selected target and listed skills before relying on them. The CLI command above does not pin `v2026.09`; the source revision selected depends on CLI behavior. The `v2026.09` tag becomes available only after publication. If an exact release is required, use the Git method below and record the resolved commit in your project provenance. CLI behavior and agent install locations may vary by CLI version.
+Check which skills were installed and where. The [Skills CLI documentation](https://www.skills.sh/docs/cli) covers its options. These commands do not pin a particular OMF Skills release; use the Git method below if you need a fixed version.
 
-## Manual Git installation
+## Ask your coding agent
 
-Use this method when a fixed Git release is needed or Node.js is unavailable. The example uses `~/.agents/skills`, a common shared location; check your agent's documented discovery path first. Review existing links before replacing them.
+You can give an agent that supports Agent Skills this request:
+
+> Install the skills from `https://github.com/openmodelingfoundation/skills` for this project. Then list the skills you installed and where you put them.
+
+Follow your agent's installation instructions if it needs a different request or location. Reload the agent if it does not find the new skills right away.
+
+## Install a specific release with Git
+
+Use this method when you need a fixed version or cannot use Node.js. The example below checks out `v2026.09` and links each published skill into `~/.agents/skills`. First check that `~/.agents/skills` is a location your agent reads before running these commands. If skills with the same names are already installed there, decide how to handle them first; the commands will not replace them.
 
 ```bash
 git clone https://github.com/openmodelingfoundation/skills.git ~/.cache/omf-skills
-# After v2026.09 is published:
 git -C ~/.cache/omf-skills fetch --tags
 git -C ~/.cache/omf-skills checkout --detach v2026.09
 mkdir -p ~/.agents/skills
@@ -38,10 +46,38 @@ for d in ~/.cache/omf-skills/skills/*/; do
 done
 ```
 
-The loop links only published skill directories. It does not replace existing paths; resolve any `ln` conflict deliberately. Restart or reload the agent if it does not discover new skills automatically.
+Ask your agent to list its installed skills afterward. If it does not find them, reload it and check its documented skill location.
 
-A tag checkout is detached. To move to a later tag, fetch tags and check out that tag explicitly; `git pull` is for an attached branch, not a detached tag. For a branch checkout, use `git -C ~/.cache/omf-skills switch main` and `git -C ~/.cache/omf-skills pull --ff-only` to follow the branch. Remove only links you created before removing the clone.
+To use a later release, fetch tags and check out the new tag in `~/.cache/omf-skills`. Tag checkouts are detached, so `git pull` will not update it. Remove any links you created before deleting the clone.
 
-## Research use
+## Record what you used in research
 
-Cite the specific released version and record the exact repository revision used. `CITATION.cff` contains the Zenodo concept DOI, which resolves across releases; use a release-specific DOI when one is published. For material project changes under `omf-artifacts/`, record the producing skill revision, inputs, decisions, review status, and observable agent or model version in `omf-artifacts/fair/provenance-manifest.json`.
+Cite the specific release and record the exact Git commit used. [`CITATION.cff`](../CITATION.cff) contains the Zenodo DOI for all versions; prefer a release specific DOI once if available. If the skills create or materially change files under `omf-artifacts/`, record the producing skill revision, inputs, decisions, review status, and observable agent or model version in `omf-artifacts/fair/provenance-manifest.json`. Most of the time this should happen automatically, but you may need to ask your agent to double check.
+
+Here's an example audit prompt (liable to change as foundation models and coding agents evolve):
+
+```markdown
+Audit this repository for conformance with applicable Open Modeling Foundation (OMF) skills guidance.
+
+Read the repository’s AGENTS.md and discover available OMF skills. Report which skills and versions or revisions you can verify. If the guidance is unavailable, report that limitation rather than inventing requirements.
+
+Select skills based on the repository’s purpose, contents, and lifecycle stage. Read their instructions and relevant supporting references. Explain applicability briefly; do not treat every skill, optional practice, or template as mandatory.
+
+Perform a read-only, evidence-based audit:
+- Assess implementation and artifacts, not just whether files exist.
+- Distinguish explicit requirements from recommendations and optional practices.
+- Respect documented project decisions and identify conflicts with guidance explicitly.
+- Check consistency across code, tests, documentation, citation metadata, and release practices where applicable.
+- Separate confirmed gaps from items that need maintainer judgment or cannot be verified.
+- Prefer proportionate improvements that reduce scientific or maintenance risk. Avoid unnecessary process, dependencies, and boilerplate.
+
+Run existing, relevant, non-destructive validation commands when feasible. Record commands, exit statuses, and limitations. Do not modify files, install dependencies, access credentials, or publish anything.
+
+Return:
+1. A concise assessment with scope and applicability.
+2. Prioritized findings, each including repository evidence, the exact guidance source, practical consequence, and smallest useful remediation.
+3. Relevant checks that passed and remaining verification gaps.
+4. A short proposed action list, separating necessary fixes from optional improvements.
+
+Do not claim formal certification or full conformance beyond the evidence examined. If no material gaps are found, say so.
+```

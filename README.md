@@ -21,7 +21,7 @@ The ultimate goal of these Agent Skills is to provide community-informed guidanc
 ### Prerequisites
 
 - A [coding-capable AI agent](https://agentskills.io/clients) (e.g., Cursor, Claude Code, Warp, OpenCode, etc.)
-- Node.js LTS (see [docs/install.md](docs/install.md))
+- Node.js LTS if using the Skills CLI (see [docs/install.md](docs/install.md))
 
 ### Install
 
@@ -34,7 +34,7 @@ npx skills add https://github.com/openmodelingfoundation/skills
 ```
 
 The `v2026.09` tag will be available after publication. For a pinned checkout,
-see [manual installation](docs/install.md#manual-git-installation). For projects using
+see [manual installation](docs/install.md#install-a-specific-release-with-git). For projects using
 older artifact paths, follow the [migration guide](docs/artifact-migration.md).
 
 #### Via Coding Agent
