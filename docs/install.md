@@ -64,6 +64,7 @@ Read the repository’s AGENTS.md and discover available OMF skills. Report whic
 Select skills based on the repository’s purpose, contents, and lifecycle stage. Read their instructions and relevant supporting references. Explain applicability briefly; do not treat every skill, optional practice, or template as mandatory.
 
 Perform a read-only, evidence-based audit:
+
 - Assess implementation and artifacts, not just whether files exist.
 - Distinguish explicit requirements from recommendations and optional practices.
 - Respect documented project decisions and identify conflicts with guidance explicitly.
@@ -74,6 +75,7 @@ Perform a read-only, evidence-based audit:
 Run existing, relevant, non-destructive validation commands when feasible. Record commands, exit statuses, and limitations. Do not modify files, install dependencies, access credentials, or publish anything.
 
 Return:
+
 1. A concise assessment with scope and applicability.
 2. Prioritized findings, each including repository evidence, the exact guidance source, practical consequence, and smallest useful remediation.
 3. Relevant checks that passed and remaining verification gaps.

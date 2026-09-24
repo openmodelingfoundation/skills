@@ -131,7 +131,7 @@ artifacts, and scientific context, and may never be fully vettable. OMF aims for
 the strongest practical rigor and transparency by recording those conditions,
 observations, limitations, and unresolved uncertainties.
 
-See [genAI code review guidance](docs/genai-code-review.md) for some programming language and framework specific risks and review guidance.
+See [reviewing AI-generated research software](docs/reviewing-ai-generated-research-software.md) for some programming language and framework specific risks and review guidance.
 
 ## Useful prompts
 
