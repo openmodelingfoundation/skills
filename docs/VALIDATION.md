@@ -271,7 +271,10 @@ Before submitting, define how your skill will be evaluated. Create a file `skill
       "type": "adversarial",
       "prompt": "I have a complex Netlogo ABM with 50 agents and nested entity hierarchies. Generate ODD.",
       "should_trigger": true,
-      "behavior": ["inspect entity hierarchy", "ask when abstractions are ambiguous"],
+      "behavior": [
+        "inspect entity hierarchy",
+        "ask when abstractions are ambiguous"
+      ],
       "output": {
         "description": "ODD with entity hierarchy explained",
         "must_include": ["entity hierarchy"],

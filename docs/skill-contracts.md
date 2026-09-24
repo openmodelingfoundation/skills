@@ -4,19 +4,19 @@ A skill interface contract defines the observable behavior that lets independent
 
 ## Contract vocabulary
 
-| Element | Required meaning |
-| --- | --- |
-| Identity | Skill name, repository source, release versioning policy, maintainer, and review status. |
-| Activation | User intent that activates the skill and adjacent intent that does not. |
-| Authority | Decisions the skill may make, revise, or resolve. |
-| Preconditions | Required inputs, prior decisions, permissions, or environmental capabilities. |
-| Effects | Files, external state, execution, publication, or recommendations the skill may produce. |
-| Invariants | Scientific, methodological, governance, or implementation commitments the skill must preserve. |
-| Outputs | Concrete deliverables and their artifact contracts. |
-| Handoff | Target skill, reason, evidence passed, and whether the current skill stops or continues. |
-| Completion | Conditions required before the skill may report success. |
-| Failure | Behavior for missing, contradictory, stale, or unverifiable information. |
-| Provenance | Material activities and outputs that require lineage records. |
+| Element       | Required meaning                                                                               |
+| ------------- | ---------------------------------------------------------------------------------------------- |
+| Identity      | Skill name, repository source, release versioning policy, maintainer, and review status.       |
+| Activation    | User intent that activates the skill and adjacent intent that does not.                        |
+| Authority     | Decisions the skill may make, revise, or resolve.                                              |
+| Preconditions | Required inputs, prior decisions, permissions, or environmental capabilities.                  |
+| Effects       | Files, external state, execution, publication, or recommendations the skill may produce.       |
+| Invariants    | Scientific, methodological, governance, or implementation commitments the skill must preserve. |
+| Outputs       | Concrete deliverables and their artifact contracts.                                            |
+| Handoff       | Target skill, reason, evidence passed, and whether the current skill stops or continues.       |
+| Completion    | Conditions required before the skill may report success.                                       |
+| Failure       | Behavior for missing, contradictory, stale, or unverifiable information.                       |
+| Provenance    | Material activities and outputs that require lineage records.                                  |
 
 ## Identity and governance
 
@@ -34,15 +34,15 @@ Use **owns** only for decision or artifact-contract authority: the owner defines
 
 ## Authority and composition registry
 
-| Skill | Decision authority | Primary effects | Required preservation and handoff |
-| --- | --- | --- | --- |
-| `omfa` | Scientific framing, conceptual structure, assumptions, uncertainty, evaluation framing, ethics, and lifecycle readiness. | Creates and revises scientific artifacts directly under `omf-artifacts/`. | Preserve specialist-owned implementation, stewardship, and narrative artifacts; hand those changes to `omfb`, `fair`, or `document`. |
-| `omfb` | Implementation architecture, module mapping, parameters, verification planning, and implementation-introduced decisions. | Creates and revises `omf-artifacts/implementation/`. | Preserve OMFA scientific intent; return scientific contradictions and required conceptual changes to `omfa`. |
-| `fair` | Stewardship, metadata coherence, provenance, reproducibility assessment, preservation, packaging, and citation. | Creates and revises `omf-artifacts/fair/` and scoped metadata or provenance contributions elsewhere. | Preserve scientific claims and narrative meaning; hand substantive scientific or narrative changes to their owners. |
-| `document` | Narrative framework, structure, and faithful communication of supplied scientific content. | Creates narrative outputs and `omf-artifacts/document/` intermediates. | Preserve authoritative scientific claims; expose source conflicts and hand scientific revision to `omfa`. |
-| `peer-review` | Evidence-based assessment against review criteria. | Produces findings, scores, and recommendations under `omf-artifacts/review/` when persisted. | Do not silently remediate assessed artifacts; route fixes to the affected artifact's contract authority unless the user separately authorizes remediation. |
-| `hpc` | Slurm execution design and HPC resource planning. | Produces Slurm scripts, resource plans, and submission guidance. | Preserve experimental intent and parameter semantics; hand model-method or stewardship changes to `omfa` or `fair`. |
-| `ospool` | HTCondor and OSPool execution design for distributed workloads. | Produces submit files, DAGs, transfer plans, and execution guidance. | Preserve experimental intent, input identity, and result lineage; hand model-method or stewardship changes to `omfa` or `fair`. |
+| Skill         | Decision authority                                                                                                       | Primary effects                                                                                      | Required preservation and handoff                                                                                                                          |
+| ------------- | ------------------------------------------------------------------------------------------------------------------------ | ---------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `omfa`        | Scientific framing, conceptual structure, assumptions, uncertainty, evaluation framing, ethics, and lifecycle readiness. | Creates and revises scientific artifacts directly under `omf-artifacts/`.                            | Preserve specialist-owned implementation, stewardship, and narrative artifacts; hand those changes to `omfb`, `fair`, or `document`.                       |
+| `omfb`        | Implementation architecture, module mapping, parameters, verification planning, and implementation-introduced decisions. | Creates and revises `omf-artifacts/implementation/`.                                                 | Preserve OMFA scientific intent; return scientific contradictions and required conceptual changes to `omfa`.                                               |
+| `fair`        | Stewardship, metadata coherence, provenance, reproducibility assessment, preservation, packaging, and citation.          | Creates and revises `omf-artifacts/fair/` and scoped metadata or provenance contributions elsewhere. | Preserve scientific claims and narrative meaning; hand substantive scientific or narrative changes to their owners.                                        |
+| `document`    | Narrative framework, structure, and faithful communication of supplied scientific content.                               | Creates narrative outputs and `omf-artifacts/document/` intermediates.                               | Preserve authoritative scientific claims; expose source conflicts and hand scientific revision to `omfa`.                                                  |
+| `peer-review` | Evidence-based assessment against review criteria.                                                                       | Produces findings, scores, and recommendations under `omf-artifacts/review/` when persisted.         | Do not silently remediate assessed artifacts; route fixes to the affected artifact's contract authority unless the user separately authorizes remediation. |
+| `hpc`         | Slurm execution design and HPC resource planning.                                                                        | Produces Slurm scripts, resource plans, and submission guidance.                                     | Preserve experimental intent and parameter semantics; hand model-method or stewardship changes to `omfa` or `fair`.                                        |
+| `ospool`      | HTCondor and OSPool execution design for distributed workloads.                                                          | Produces submit files, DAGs, transfer plans, and execution guidance.                                 | Preserve experimental intent, input identity, and result lineage; hand model-method or stewardship changes to `omfa` or `fair`.                            |
 
 ## Handoff protocol
 

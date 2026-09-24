@@ -176,13 +176,24 @@
       "sequence_required": true,
       "skills_expected": ["omfa", "fair"],
       "prompt": "Create the conceptual model from my source code and record exact skill and input provenance without storing my raw prompt.",
-      "behavior": ["omfa creates the scientific artifact", "fair persists a conforming provenance activity"],
+      "behavior": [
+        "omfa creates the scientific artifact",
+        "fair persists a conforming provenance activity"
+      ],
       "output": {
         "description": "Conceptual model with authority-aware, privacy-preserving provenance",
-        "must_include": ["omf-artifacts/conceptual-model.md", "provenance-manifest.json"],
+        "must_include": [
+          "omf-artifacts/conceptual-model.md",
+          "provenance-manifest.json"
+        ],
         "must_not_include": ["raw prompt"]
       },
-      "failure_modes": ["missing_step", "wrong_order", "missing_provenance", "privacy_leak"]
+      "failure_modes": [
+        "missing_step",
+        "wrong_order",
+        "missing_provenance",
+        "privacy_leak"
+      ]
     }
   ]
 }

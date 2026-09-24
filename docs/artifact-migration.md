@@ -2,17 +2,17 @@
 
 Use the [artifact contract](artifact-contracts.md) to assign each existing artifact one owner before moving it. Inventory paths, content, references, and provenance; preserve originals in version control or a separate backup. Review each mapping with the relevant skill and update links only after the destination has been checked. Do not create a second canonical file for the same artifact.
 
-| Older project artifact | Current destination and owner |
-| --- | --- |
-| `artifacts/model-card.md`, `model_card.md` | `omf-artifacts/model-card.md` — OMFA |
-| `artifacts/conceptual-model.md`, `conceptual_model.md` | `omf-artifacts/conceptual-model.md` — OMFA |
-| `artifacts/assumptions.md`, `artifacts/abm-spec.md` | Same basename under `omf-artifacts/` — OMFA |
-| Other scientific lifecycle files under `artifacts/` | Same kebab-case basename directly under `omf-artifacts/` — OMFA, after checking for a canonical equivalent |
-| `artifacts/implementation-plan.md`, `artifacts/implementation/plan.md` | `omf-artifacts/implementation/plan.md` — OMFB |
-| `artifacts/architecture-overview.md` | `omf-artifacts/implementation/architecture.md` — OMFB, after checking content |
-| `artifacts/module-mapping.md`, `artifacts/parameter-schema.md`, `artifacts/verification-plan.md` | Same basename under `omf-artifacts/implementation/` — OMFB |
-| `artifacts/provenance-manifest.json`, `artifacts/fair/provenance-manifest.json`, `provenance_manifest.json` | `omf-artifacts/fair/provenance-manifest.json` — FAIR; migrate only after checking schema and revision history |
-| `artifacts/maintenance-plan.md` | `omf-artifacts/fair/maintenance-plan.md` — FAIR; reconcile stewardship decisions in the FAIR Management Plan first |
-| Narrative intermediates or review reports | `omf-artifacts/document/` or `omf-artifacts/review/`, respectively, after owner review |
+| Older project artifact                                                                                      | Current destination and owner                                                                                      |
+| ----------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------ |
+| `artifacts/model-card.md`, `model_card.md`                                                                  | `omf-artifacts/model-card.md` — OMFA                                                                               |
+| `artifacts/conceptual-model.md`, `conceptual_model.md`                                                      | `omf-artifacts/conceptual-model.md` — OMFA                                                                         |
+| `artifacts/assumptions.md`, `artifacts/abm-spec.md`                                                         | Same basename under `omf-artifacts/` — OMFA                                                                        |
+| Other scientific lifecycle files under `artifacts/`                                                         | Same kebab-case basename directly under `omf-artifacts/` — OMFA, after checking for a canonical equivalent         |
+| `artifacts/implementation-plan.md`, `artifacts/implementation/plan.md`                                      | `omf-artifacts/implementation/plan.md` — OMFB                                                                      |
+| `artifacts/architecture-overview.md`                                                                        | `omf-artifacts/implementation/architecture.md` — OMFB, after checking content                                      |
+| `artifacts/module-mapping.md`, `artifacts/parameter-schema.md`, `artifacts/verification-plan.md`            | Same basename under `omf-artifacts/implementation/` — OMFB                                                         |
+| `artifacts/provenance-manifest.json`, `artifacts/fair/provenance-manifest.json`, `provenance_manifest.json` | `omf-artifacts/fair/provenance-manifest.json` — FAIR; migrate only after checking schema and revision history      |
+| `artifacts/maintenance-plan.md`                                                                             | `omf-artifacts/fair/maintenance-plan.md` — FAIR; reconcile stewardship decisions in the FAIR Management Plan first |
+| Narrative intermediates or review reports                                                                   | `omf-artifacts/document/` or `omf-artifacts/review/`, respectively, after owner review                             |
 
 For another snake_case filename, map it to the matching canonical kebab-case name only when its meaning is the same. Legacy files without a current equivalent, such as `artifacts/data-flow.md`, need owner review rather than an automatic rename. Do not overwrite a destination or merge contradictory scientific commitments automatically. Mark uncertain mappings and stale downstream dependencies for owner review. Record each material migration and its old path, new path, inputs, decisions, and review state in the FAIR provenance manifest under the current schema. If that schema cannot be used, retain a `provenance_handoff` for FAIR and report persistence as incomplete. Finally update references and the project `omf-artifacts/README.md`, then verify no competing old and new artifact remains active.

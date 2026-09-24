@@ -1,11 +1,35 @@
 {
   "schema_version": "1.0.0",
   "contracts": [
-    {"match": "exact", "path": "omf-artifacts/README.md", "authority": "skill:omfa"},
-    {"match": "prefix", "path": "omf-artifacts/implementation/", "authority": "skill:omfb"},
-    {"match": "prefix", "path": "omf-artifacts/fair/", "authority": "skill:fair"},
-    {"match": "prefix", "path": "omf-artifacts/document/", "authority": "skill:document"},
-    {"match": "prefix", "path": "omf-artifacts/review/", "authority": "skill:peer-review"},
-    {"match": "direct-child", "path": "omf-artifacts/", "authority": "skill:omfa"}
+    {
+      "match": "exact",
+      "path": "omf-artifacts/README.md",
+      "authority": "skill:omfa"
+    },
+    {
+      "match": "prefix",
+      "path": "omf-artifacts/implementation/",
+      "authority": "skill:omfb"
+    },
+    {
+      "match": "prefix",
+      "path": "omf-artifacts/fair/",
+      "authority": "skill:fair"
+    },
+    {
+      "match": "prefix",
+      "path": "omf-artifacts/document/",
+      "authority": "skill:document"
+    },
+    {
+      "match": "prefix",
+      "path": "omf-artifacts/review/",
+      "authority": "skill:peer-review"
+    },
+    {
+      "match": "direct-child",
+      "path": "omf-artifacts/",
+      "authority": "skill:omfa"
+    }
   ]
 }

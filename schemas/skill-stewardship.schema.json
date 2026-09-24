@@ -110,7 +110,13 @@
     "subjectRevision": {
       "type": "object",
       "additionalProperties": false,
-      "required": ["algorithm", "digest", "manifest", "include-overrides", "exclusions"],
+      "required": [
+        "algorithm",
+        "digest",
+        "manifest",
+        "include-overrides",
+        "exclusions"
+      ],
       "properties": {
         "algorithm": { "const": "sha256-manifest-v1" },
         "digest": { "$ref": "#/$defs/digest" },
@@ -194,7 +200,13 @@
       "required": ["type", "evidence", "rationale"],
       "properties": {
         "type": {
-          "enum": ["standard", "literature", "community-practice", "expert-judgment", "incident-evidence"]
+          "enum": [
+            "standard",
+            "literature",
+            "community-practice",
+            "expert-judgment",
+            "incident-evidence"
+          ]
         },
         "evidence": { "$ref": "#/$defs/evidence" },
         "rationale": { "$ref": "#/$defs/nonempty" }
@@ -203,7 +215,13 @@
     "guidance": {
       "type": "object",
       "additionalProperties": false,
-      "required": ["guidance-id", "scope", "consequential", "bases", "limitations"],
+      "required": [
+        "guidance-id",
+        "scope",
+        "consequential",
+        "bases",
+        "limitations"
+      ],
       "properties": {
         "guidance-id": { "$ref": "#/$defs/nonempty" },
         "scope": { "$ref": "#/$defs/guidanceScope" },
@@ -220,7 +238,10 @@
       },
       "allOf": [
         {
-          "if": { "properties": { "bases": { "maxItems": 0 } }, "required": ["bases"] },
+          "if": {
+            "properties": { "bases": { "maxItems": 0 } },
+            "required": ["bases"]
+          },
           "then": { "required": ["provenance-gap"] }
         }
       ]
@@ -230,7 +251,10 @@
       "additionalProperties": false,
       "required": ["guidance-ids", "files", "concerns"],
       "properties": {
-        "guidance-ids": { "type": "array", "items": { "$ref": "#/$defs/nonempty" } },
+        "guidance-ids": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/nonempty" }
+        },
         "files": { "type": "array", "items": { "$ref": "#/$defs/nonempty" } },
         "concerns": { "type": "array", "items": { "$ref": "#/$defs/nonempty" } }
       },
@@ -252,13 +276,23 @@
     "relatedClaim": {
       "type": "object",
       "additionalProperties": false,
-      "required": ["relation", "repository", "record-revision", "record-path", "claim-type", "evidence", "reason"],
+      "required": [
+        "relation",
+        "repository",
+        "record-revision",
+        "record-path",
+        "claim-type",
+        "evidence",
+        "reason"
+      ],
       "properties": {
         "relation": { "enum": ["corrects", "invalidates", "supersedes"] },
         "repository": { "$ref": "#/$defs/nonempty" },
         "record-revision": { "$ref": "#/$defs/recordRevision" },
         "record-path": { "$ref": "#/$defs/nonempty" },
-        "claim-type": { "enum": ["structural-review", "domain-review", "evaluation"] },
+        "claim-type": {
+          "enum": ["structural-review", "domain-review", "evaluation"]
+        },
         "evidence": { "$ref": "#/$defs/evidence" },
         "reason": { "$ref": "#/$defs/nonempty" }
       }
@@ -283,18 +317,41 @@
     "reviewResultClaim": {
       "type": "object",
       "additionalProperties": false,
-      "required": ["subject-revision", "reviewed-at", "reviewers", "conflicts", "scope", "outcome", "evidence", "limitations", "related-claims"],
+      "required": [
+        "subject-revision",
+        "reviewed-at",
+        "reviewers",
+        "conflicts",
+        "scope",
+        "outcome",
+        "evidence",
+        "limitations",
+        "related-claims"
+      ],
       "properties": {
         "subject-revision": { "$ref": "#/$defs/digest" },
         "reviewed-at": { "$ref": "#/$defs/date" },
         "review-due": { "$ref": "#/$defs/date" },
-        "reviewers": { "type": "array", "minItems": 1, "items": { "$ref": "#/$defs/attribution" } },
-        "conflicts": { "type": "array", "items": { "$ref": "#/$defs/nonempty" } },
+        "reviewers": {
+          "type": "array",
+          "minItems": 1,
+          "items": { "$ref": "#/$defs/attribution" }
+        },
+        "conflicts": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/nonempty" }
+        },
         "scope": { "$ref": "#/$defs/reviewScope" },
         "outcome": { "enum": ["reviewed", "changes-requested"] },
         "evidence": { "$ref": "#/$defs/evidence" },
-        "limitations": { "type": "array", "items": { "$ref": "#/$defs/nonempty" } },
-        "related-claims": { "type": "array", "items": { "$ref": "#/$defs/relatedClaim" } }
+        "limitations": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/nonempty" }
+        },
+        "related-claims": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/relatedClaim" }
+        }
       }
     },
     "component": {
@@ -315,7 +372,10 @@
         "model": { "$ref": "#/$defs/component" },
         "runtime": { "$ref": "#/$defs/component" },
         "tools": { "type": "array", "items": { "$ref": "#/$defs/component" } },
-        "dependencies": { "type": "array", "items": { "$ref": "#/$defs/component" } }
+        "dependencies": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/component" }
+        }
       }
     },
     "criterion": {
@@ -330,27 +390,56 @@
     "supportedEnvironment": {
       "type": "object",
       "additionalProperties": false,
-      "required": ["model", "runtime", "tools", "dependencies", "required-suite-revision", "acceptance-criteria"],
+      "required": [
+        "model",
+        "runtime",
+        "tools",
+        "dependencies",
+        "required-suite-revision",
+        "acceptance-criteria"
+      ],
       "properties": {
         "model": { "$ref": "#/$defs/component" },
         "runtime": { "$ref": "#/$defs/component" },
         "tools": { "type": "array", "items": { "$ref": "#/$defs/component" } },
-        "dependencies": { "type": "array", "items": { "$ref": "#/$defs/component" } },
+        "dependencies": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/component" }
+        },
         "required-suite-revision": { "$ref": "#/$defs/digest" },
-        "acceptance-criteria": { "type": "array", "minItems": 1, "items": { "$ref": "#/$defs/criterion" } }
+        "acceptance-criteria": {
+          "type": "array",
+          "minItems": 1,
+          "items": { "$ref": "#/$defs/criterion" }
+        }
       }
     },
     "invalidationClaim": {
       "type": "object",
       "additionalProperties": false,
-      "required": ["subject-revision", "recorded-at", "recorded-by", "outcome", "evidence", "related-claims"],
+      "required": [
+        "subject-revision",
+        "recorded-at",
+        "recorded-by",
+        "outcome",
+        "evidence",
+        "related-claims"
+      ],
       "properties": {
         "subject-revision": { "$ref": "#/$defs/digest" },
         "recorded-at": { "$ref": "#/$defs/date" },
-        "recorded-by": { "type": "array", "minItems": 1, "items": { "$ref": "#/$defs/attribution" } },
+        "recorded-by": {
+          "type": "array",
+          "minItems": 1,
+          "items": { "$ref": "#/$defs/attribution" }
+        },
         "outcome": { "const": "invalidated" },
         "evidence": { "$ref": "#/$defs/evidence" },
-        "related-claims": { "type": "array", "minItems": 1, "items": { "$ref": "#/$defs/relatedClaim" } }
+        "related-claims": {
+          "type": "array",
+          "minItems": 1,
+          "items": { "$ref": "#/$defs/relatedClaim" }
+        }
       }
     },
     "evaluationClaim": {
@@ -362,12 +451,27 @@
     "acceptedEvaluationClaim": {
       "type": "object",
       "additionalProperties": false,
-      "required": ["subject-revision", "suite-revision", "environment", "acceptance-criteria", "repetitions", "result", "accepted-at", "accepted-by", "limitations", "related-claims"],
+      "required": [
+        "subject-revision",
+        "suite-revision",
+        "environment",
+        "acceptance-criteria",
+        "repetitions",
+        "result",
+        "accepted-at",
+        "accepted-by",
+        "limitations",
+        "related-claims"
+      ],
       "properties": {
         "subject-revision": { "$ref": "#/$defs/digest" },
         "suite-revision": { "$ref": "#/$defs/digest" },
         "environment": { "$ref": "#/$defs/environment" },
-        "acceptance-criteria": { "type": "array", "minItems": 1, "items": { "$ref": "#/$defs/criterion" } },
+        "acceptance-criteria": {
+          "type": "array",
+          "minItems": 1,
+          "items": { "$ref": "#/$defs/criterion" }
+        },
         "repetitions": { "type": "integer", "minimum": 1 },
         "result": {
           "type": "object",
@@ -383,10 +487,20 @@
           }
         },
         "accepted-at": { "$ref": "#/$defs/date" },
-        "accepted-by": { "type": "array", "minItems": 1, "items": { "$ref": "#/$defs/attribution" } },
+        "accepted-by": {
+          "type": "array",
+          "minItems": 1,
+          "items": { "$ref": "#/$defs/attribution" }
+        },
         "valid-until": { "$ref": "#/$defs/date" },
-        "limitations": { "type": "array", "items": { "$ref": "#/$defs/nonempty" } },
-        "related-claims": { "type": "array", "items": { "$ref": "#/$defs/relatedClaim" } }
+        "limitations": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/nonempty" }
+        },
+        "related-claims": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/relatedClaim" }
+        }
       }
     },
     "compatibility": {

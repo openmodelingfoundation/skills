@@ -173,26 +173,26 @@ Do not use a single lifecycle field for unrelated states.
 
 ### Maintenance status
 
-| Status | Meaning |
-| --- | --- |
-| `maintained` | An identified maintainer currently accepts stewardship responsibility. |
+| Status         | Meaning                                                                                    |
+| -------------- | ------------------------------------------------------------------------------------------ |
+| `maintained`   | An identified maintainer currently accepts stewardship responsibility.                     |
 | `unmaintained` | No maintainer currently accepts that responsibility; historical records remain resolvable. |
 
 ### Development stability
 
-| Status | Meaning |
-| --- | --- |
-| `experimental` | Interfaces or guidance may change without migration support. |
-| `evolving` | Suitable for stated uses, but consequential changes remain expected. |
-| `stable` | Development interfaces carry compatibility and migration expectations; this is not a scientific-validity status. |
+| Status         | Meaning                                                                                                          |
+| -------------- | ---------------------------------------------------------------------------------------------------------------- |
+| `experimental` | Interfaces or guidance may change without migration support.                                                     |
+| `evolving`     | Suitable for stated uses, but consequential changes remain expected.                                             |
+| `stable`       | Development interfaces carry compatibility and migration expectations; this is not a scientific-validity status. |
 
 ### Distribution status
 
-| Status | Meaning |
-| --- | --- |
-| `current` | Available and recommended within stated limitations. |
-| `deprecated` | Resolvable but not recommended for new use; migration information is provided. |
-| `retired` | Deliberately removed from normal distribution; preserved for historical resolution. |
+| Status       | Meaning                                                                             |
+| ------------ | ----------------------------------------------------------------------------------- |
+| `current`    | Available and recommended within stated limitations.                                |
+| `deprecated` | Resolvable but not recommended for new use; migration information is provided.      |
+| `retired`    | Deliberately removed from normal distribution; preserved for historical resolution. |
 
 `unmaintained` describes an absence of stewardship. `retired` describes a
 deliberate distribution decision. They are not interchangeable. The former
@@ -328,13 +328,13 @@ Normal skill activation does not create a stewardship review or evaluation
 claim and does not create a stewardship activity. These records arise only
 from deliberate stewardship work:
 
-| Event | Stewardship consequence |
-| --- | --- |
-| Structural or domain review begins | No claim yet. Work remains review evidence in progress. |
-| Review concludes | Record its review result and a scoped review claim. |
-| Evaluation runs | Produce an evaluation result outside `stewardship.yaml`. |
-| Maintainers accept a qualifying result | Record a scoped evaluation claim that references the result. |
-| A user reports a failure | Preserve it as potential incident evidence; do not automatically create a claim or change stewardship state. |
+| Event                                  | Stewardship consequence                                                                                      |
+| -------------------------------------- | ------------------------------------------------------------------------------------------------------------ |
+| Structural or domain review begins     | No claim yet. Work remains review evidence in progress.                                                      |
+| Review concludes                       | Record its review result and a scoped review claim.                                                          |
+| Evaluation runs                        | Produce an evaluation result outside `stewardship.yaml`.                                                     |
+| Maintainers accept a qualifying result | Record a scoped evaluation claim that references the result.                                                 |
+| A user reports a failure               | Preserve it as potential incident evidence; do not automatically create a claim or change stewardship state. |
 
 A review or evaluation activity is the work performed. Its review record or
 evaluation result is evidence produced by that work. A stewardship claim is a
@@ -546,20 +546,20 @@ YAML may be mapped to PROV later if an interoperability use case emerges.
 
 ## Triggers and transitions
 
-| Event | Required action |
-| --- | --- |
-| Behavior-affecting content changes | Produce a new subject revision; prior claims remain historical and become stale where their scope is affected. |
-| Governance record or evidence changes only | Produce a new record revision; preserve the subject revision. |
-| Consequential guidance changes | Reassess affected domain-review and evaluation coverage. |
-| Normative source changes materially | Reassess affected modules and record stale claims when applicability changed. |
-| Evaluation-target model, runtime, tool, or dependency changes | Require a new exact environment-scoped evaluation result and accepted claim. |
-| User reports a failure | Preserve potential incident evidence; do not automatically alter claims or status. |
-| Maintainers confirm a critical or major incident | Invalidate affected current claims immediately and open review or evaluation. |
-| Maintainers confirm a minor incident | Preserve incident evidence and escalate according to the review policy. |
-| Review due date passes | Treat the affected review claim as stale. |
-| Skill is superseded | Set distribution to `deprecated` and provide a successor or state explicitly that none exists. |
-| Stewardship ceases | Set maintenance to `unmaintained`; separately decide whether distribution becomes `deprecated` or `retired`. |
-| Skill is deliberately withdrawn | Set distribution to `retired`, record the rationale, and preserve historical resolution. |
+| Event                                                         | Required action                                                                                                |
+| ------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------- |
+| Behavior-affecting content changes                            | Produce a new subject revision; prior claims remain historical and become stale where their scope is affected. |
+| Governance record or evidence changes only                    | Produce a new record revision; preserve the subject revision.                                                  |
+| Consequential guidance changes                                | Reassess affected domain-review and evaluation coverage.                                                       |
+| Normative source changes materially                           | Reassess affected modules and record stale claims when applicability changed.                                  |
+| Evaluation-target model, runtime, tool, or dependency changes | Require a new exact environment-scoped evaluation result and accepted claim.                                   |
+| User reports a failure                                        | Preserve potential incident evidence; do not automatically alter claims or status.                             |
+| Maintainers confirm a critical or major incident              | Invalidate affected current claims immediately and open review or evaluation.                                  |
+| Maintainers confirm a minor incident                          | Preserve incident evidence and escalate according to the review policy.                                        |
+| Review due date passes                                        | Treat the affected review claim as stale.                                                                      |
+| Skill is superseded                                           | Set distribution to `deprecated` and provide a successor or state explicitly that none exists.                 |
+| Stewardship ceases                                            | Set maintenance to `unmaintained`; separately decide whether distribution becomes `deprecated` or `retired`.   |
+| Skill is deliberately withdrawn                               | Set distribution to `retired`, record the rationale, and preserve historical resolution.                       |
 
 Formatting changes to `SKILL.md` change its byte-level subject revision even
 when maintainers judge them non-behavioral. Carrying a prior claim forward to
@@ -629,11 +629,11 @@ being presented as a scientific-validity claim.
 
 ## Sources of truth
 
-| Information | Canonical source |
-| --- | --- |
-| Skill instructions and execution resources | Subject manifest files |
-| License | Standard `license` frontmatter or bundled license file |
-| Repository authorship and citation | Repository `CITATION.cff` |
-| Change history and record revision | Git and releases |
-| Stewardship claims and subject revision | `stewardship.yaml` |
-| Review and evaluation evidence | Referenced immutable evidence records |
+| Information                                | Canonical source                                       |
+| ------------------------------------------ | ------------------------------------------------------ |
+| Skill instructions and execution resources | Subject manifest files                                 |
+| License                                    | Standard `license` frontmatter or bundled license file |
+| Repository authorship and citation         | Repository `CITATION.cff`                              |
+| Change history and record revision         | Git and releases                                       |
+| Stewardship claims and subject revision    | `stewardship.yaml`                                     |
+| Review and evaluation evidence             | Referenced immutable evidence records                  |

@@ -30,7 +30,7 @@ license: MIT
 # compatibility: <e.g., "Python 3.10+, Git repository required">
 
 metadata:
-  omf-stewardship: stewardship.yaml
+omf-stewardship: stewardship.yaml
 
 ---
 
