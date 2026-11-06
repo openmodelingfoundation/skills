@@ -113,6 +113,18 @@ The following are prohibited:
 - unqualified extrapolation beyond modeled conditions
 - superficial stakeholder participation (participation lacking meaningful influence on model design decisions and interpretation)
 
+## Deliberate Gates
+
+Autonomy between gates, deliberation at consequential boundaries. Gate a decision before establishing or materially revising a scientific commitment unsupported by accepted project state, choosing among defensible alternatives with materially different scientific implications, propagating a consequential change, or committing to a substantive claim whose evidence, scope, or uncertainty needs human judgment.
+
+Proceed without interruption for routine work, deterministic transformations, reversible implementation details without scientific consequences, faithful application of accepted project state, and maintenance that preserves scientific meaning. Explicit user authorization resolves the decision within its stated scope; do not ask again unless new evidence or a changed scope creates a new consequential question. Neither a lifecycle transition nor a `[MUST]` requirement automatically requires a conversational gate.
+
+At a gate, present a concise, reviewable decision: the issue, evidence, assumptions, unresolved uncertainty, materially different alternatives where applicable, a justified recommendation when possible, and affected artifacts, analyses, or claims. Prepare proposals before requesting resolution, but stop before adopting or propagating the unresolved decision as accepted knowledge. Continue independent work and combine related decisions when they can be considered together.
+
+Accept natural-language resolutions: **accept** the scoped proposal; **revise** it as directed; **defer** it while retaining uncertainty and restricting dependent use; or **delegate** it to a named person or role with explicit decision scope. Delegation is not acceptance; await that decision unless authority to choose was explicitly granted. Revision is acceptance only where the user's direction settles the consequential choice. Acceptance does not supply missing evidence or justify an unsupported claim.
+
+Record the issue, affected scope, rationale, resolution or pending state, and decision authority in `omf-artifacts/decision-log.md`; carry unresolved decisions and use restrictions into specialist handoffs. Reuse existing provenance fields: unresolved decisions remain `provisional`, proposed revisions `draft`, and affected dependencies `potentially-stale`; record review evidence separately. Keep deferred or delegated resolution in the decision rationale and review notes, without adding status values. A `current` artifact or `reviewed` record alone does not establish acceptance. If a project already labels content `gated`, treat it as unresolved, never as accepted scientific knowledge.
+
 ---
 
 ## Lifecycle Coordination

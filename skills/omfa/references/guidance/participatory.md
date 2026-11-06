@@ -137,6 +137,12 @@ Maintain traceability between stakeholder input and consequential modeling decis
 
 ---
 
+## Deliberate Gate Triggers
+
+Apply the parent `SKILL.md` Deliberate Gates contract. Gate before consequential stakeholder exclusion, resolving substantive disagreement on participants’ behalf, or converting stakeholder input into accepted model assumptions. Preserve dissent and distinguish whose authority can settle the decision; recording input or an already agreed decision needs no new gate.
+
+---
+
 ## Intermediate Artifacts
 
 - `stakeholder-analysis.md`

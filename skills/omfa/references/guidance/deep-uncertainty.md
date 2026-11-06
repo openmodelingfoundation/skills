@@ -80,6 +80,12 @@ Identify which uncertainties are reducible, which are irreducible, and which rem
 
 ---
 
+## Deliberate Gate Triggers
+
+Apply the parent `SKILL.md` Deliberate Gates contract. Gate before collapsing plausible scenarios, competing models, stakeholder objectives, or unresolved assumptions into a single accepted representation, including assigning probabilities without defensible support. Deferral may retain multiple alternatives; it need not select a winner to permit independent exploratory work.
+
+---
+
 ## Intermediate Artifacts
 
 Generate or maintain, as appropriate:

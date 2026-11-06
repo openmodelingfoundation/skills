@@ -67,6 +67,14 @@ reviewable intermediate artifacts where appropriate.
 
 ---
 
+## Deliberate Gate Triggers <!-- optional -->
+
+Identify only methodology-specific decisions that meet the parent `SKILL.md`
+Deliberate Gates contract. Omit this section if it adds no specific guidance.
+Do not repeat the procedure or turn `[MUST]` requirements into automatic gates.
+
+---
+
 ## Method Selection <!-- optional -->
 <!--
 Include only when this guidance helps choose between competing analytical,

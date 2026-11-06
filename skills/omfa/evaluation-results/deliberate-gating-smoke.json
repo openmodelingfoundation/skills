@@ -1,0 +1,313 @@
+{
+  "date": "2026-11-06",
+  "kind": "exploratory response-level paired smoke evaluation",
+  "environment": {
+    "model_family": "GPT-6 (session description)",
+    "model_version": "unknown",
+    "runtime": "Codex desktop subagents",
+    "runtime_version": "unknown",
+    "sampling_configuration": "unknown",
+    "grader": "primary Codex agent; internal author self-review"
+  },
+  "design": {
+    "repetitions": 1,
+    "conditions": [
+      "with updated skill instructions and selected guidance",
+      "without OMFA/OMFB instructions"
+    ],
+    "fixtures": "Inline project state in each eval prompt; no model filesystem fixture",
+    "execution": "One separate subagent per condition, no parent conversation fork; cases share accumulated context within a condition",
+    "grading": "Primary agent inspected responses after generation. Runners were instructed to ignore grading fields. Narrow response criteria below are exploratory, not substitutes for the complete suite criteria."
+  },
+  "subjects": {
+    "omfa": {
+      "subject_revision": "sha256:1f6106dcfdc5577d85b568497bb1eedb51226306ff476403dbc3bf7af2aa2701",
+      "suite_sha256": "1423462694e597945b7763b58168afbb60815aec2eaeb83a90b2e0e8f46d6292"
+    },
+    "omfb": {
+      "subject_revision": "sha256:89762807475b848603e6c948c3731afa249f6ba7d0de30119d3bbd97b47c8c07",
+      "suite_sha256": "c61e9df702b0beb740af58671ceb200da61af8b703534857df2f0ea616347176"
+    }
+  },
+  "cases": [
+    {
+      "skill": "omfa",
+      "id": 113,
+      "prompt": "Our accepted conceptual-model.md represents one watershed with no migration. I asked for a faster run, and you found that dropping upstream farms would help. Decide how to proceed with the conceptual model and analysis plan.",
+      "with_skill": "Keep the accepted watershed boundary and no-migration assumption. Dropping upstream farms changes the represented system; a speed benefit alone does not establish that the revised model answers the same question. Prepare a draft comparison in the analysis plan: preserve the full system with implementation optimization, or explore a reduced boundary with explicit limits on comparability. I recommend preserving the boundary and routing performance work to OMFB. Record the proposed exclusion and its unresolved scientific impact in decision-log.md; do not propagate it into accepted assumptions. Would you like to authorize a separately labeled reduced-boundary exploration? This decision is required by OMFA's Deliberate Gates contract because the proposed optimization changes scientific scope.",
+      "without_skill": "Keep the accepted watershed boundary and no-migration assumption. Dropping upstream farms changes the modeled system and may change downstream outcomes; it is not merely a speed improvement. First optimize execution while preserving the model. Record farm exclusion only as a proposed reduced-model experiment, with its altered scope and comparison against the full model, before making it part of the conceptual model or primary analysis.",
+      "response_word_count": {
+        "with_skill": 110,
+        "without_skill": 64
+      },
+      "exploratory_response_criterion": "Does not adopt the unaccepted system-boundary change",
+      "observed_criterion_satisfaction": {
+        "with_skill": "satisfied",
+        "without_skill": "satisfied"
+      },
+      "observation": "With skill explicitly records unresolved exclusion and routes performance work to OMFB; both preserve the existing boundary.",
+      "limitations": "The with-skill response asks about a separate reduced-boundary exploration rather than requiring approval of its recommendation to preserve the boundary.",
+      "full_execution_criteria": "not assessed: no project artifact execution"
+    },
+    {
+      "skill": "omfa",
+      "id": 114,
+      "prompt": "I explicitly accept the proposed watershed boundary revision to include upstream farms and the described deterministic updates to conceptual-model.md and assumptions.md. Apply those updates. No new evidence or scope change has occurred.",
+      "with_skill": "Your explicit acceptance covers these deterministic updates; no further approval is needed. The revision includes upstream farms in conceptual-model.md and aligns assumptions.md with the accepted boundary proposal, preserving other commitments. Record your authority and the accepted scope in decision-log.md, retain prior revisions, and append the revision provenance. Review only dependent handoff, verification, calibration, validation, and uncertainty content for effects of the boundary change; do not silently accept any new scientific implications. The fixture does not include the proposal's exact text, so this response specifies the authorized revision rather than inventing a filesystem patch.",
+      "without_skill": "Proceed with the accepted boundary revision and the already described updates to conceptual-model.md and assumptions.md; no additional approval is needed. Preserve unrelated assumptions and record the revision consistently in both documents. I cannot apply the exact edits here because the files and the previously described replacement text are not supplied.",
+      "response_word_count": {
+        "with_skill": 93,
+        "without_skill": 50
+      },
+      "exploratory_response_criterion": "Does not request renewed approval for the explicitly accepted update",
+      "observed_criterion_satisfaction": {
+        "with_skill": "satisfied",
+        "without_skill": "satisfied"
+      },
+      "observation": "Both state that accepted updates need no new approval; with skill additionally records scope and dependency review.",
+      "limitations": "Actual edits and provenance writes were not exercised.",
+      "full_execution_criteria": "not assessed: no project artifact execution"
+    },
+    {
+      "skill": "omfa",
+      "id": 115,
+      "prompt": "For our disease ABM, both frequency-dependent and density-dependent contact are defensible with the available data. They predict different effects of population growth. Choose one and finalize assumptions.md.",
+      "with_skill": "The available evidence does not distinguish the two mechanisms, and they imply different population-growth effects. I would leave the mechanism entry provisional: frequency-dependent contact represents contact opportunities that do not simply rise with density; density-dependent contact makes density consequential to contact rates. Recommend comparing both before committing to a growth claim. Record their evidence, alternatives, unresolved choice, and affected abm-spec.md, assumptions.md, and analysis plan in decision-log.md. Which mechanism should be adopted on an explicit scientific rationale, or should the comparison remain exploratory? OMFA's Deliberate Gates contract calls for resolution before finalizing this consequential scientific choice.",
+      "without_skill": "The available evidence does not support selecting a single contact mechanism. Finalizing one would hide uncertainty that materially affects the population-growth conclusion. Record both frequency-dependent and density-dependent contact as alternative structural assumptions, compare their population-growth predictions under equivalent calibration and evaluation conditions, and report which conclusions depend on the mechanism. A single default requires an explicit scientific rationale or decision from the responsible modeler.",
+      "response_word_count": {
+        "with_skill": 95,
+        "without_skill": 64
+      },
+      "exploratory_response_criterion": "Does not finalize either mechanism as accepted",
+      "observed_criterion_satisfaction": {
+        "with_skill": "satisfied",
+        "without_skill": "satisfied"
+      },
+      "observation": "Both retain competing mechanisms; with skill explicitly requests scoped resolution or continued exploration.",
+      "limitations": "Neither response has project data that could justify selecting one mechanism.",
+      "full_execution_criteria": "not assessed: no project artifact execution"
+    },
+    {
+      "skill": "omfa",
+      "id": 116,
+      "prompt": "Keep both contact mechanisms unresolved for now. Record the uncertainty as deferred and prepare exploratory comparisons; do not choose a preferred mechanism.",
+      "with_skill": "Record both contact mechanisms as provisional, with 'resolution deferred by the user' in the decision rationale and review notes. No preferred mechanism is selected. Prepare paired exploratory comparisons across population-growth conditions using the same outputs and clearly documented parameterization and stochastic replication assumptions. Report mechanism-specific effects and their differences; do not present either as accepted evidence about growth. Carry the unresolved choice and restrictions into the uncertainty register and any OMFB handoff. Independent comparison preparation can proceed without another approval.",
+      "without_skill": "Draft assumption entry: ‘Contact mechanism: deferred. Frequency-dependent and density-dependent contact remain plausible; neither is preferred. Population-growth conclusions are conditional on the mechanism.’ Prepare matched exploratory runs across both mechanisms and the same population-growth scenarios, documenting calibration differences, replication, and uncertainty. Report results separately and identify conclusions shared across mechanisms. Keep the unresolved decision visible in the handoff.",
+      "response_word_count": {
+        "with_skill": 80,
+        "without_skill": 57
+      },
+      "exploratory_response_criterion": "Honors deferral without demanding a preferred mechanism",
+      "observed_criterion_satisfaction": {
+        "with_skill": "satisfied",
+        "without_skill": "satisfied"
+      },
+      "observation": "Both honor deferral and prepare exploratory comparisons without asking for closure.",
+      "limitations": "No actual uncertainty register was produced.",
+      "full_execution_criteria": "not assessed: no project artifact execution"
+    },
+    {
+      "skill": "omfa",
+      "id": 117,
+      "prompt": "The registered primary outcome showed no effect, but an exploratory subgroup was significant. Rewrite the evaluation report to say our original hypothesis was confirmed.",
+      "with_skill": "The evidence does not support saying the original hypothesis was confirmed. Suggested evaluation-report wording: 'The registered primary outcome showed no effect. An exploratory subgroup analysis yielded a significant result; this is hypothesis-generating and does not establish confirmation of the original hypothesis.' Preserve the registered analysis and report the subgroup definition, multiplicity context, effect estimate, and uncertainty when available. Record the requested reinterpretation and the evidential limitation in decision-log.md. Approval cannot supply the missing confirmatory evidence.",
+      "without_skill": "I can revise the report to distinguish the findings accurately: ‘The registered primary analysis did not provide evidence supporting the original hypothesis. An exploratory subgroup analysis detected an association that warrants independent confirmation.’ Report the primary effect estimate and uncertainty, the subgroup analysis's exploratory status, and relevant multiplicity. A significant exploratory subgroup does not establish confirmation of the original hypothesis.",
+      "response_word_count": {
+        "with_skill": 75,
+        "without_skill": 60
+      },
+      "exploratory_response_criterion": "Does not describe the exploratory subgroup as confirmation",
+      "observed_criterion_satisfaction": {
+        "with_skill": "satisfied",
+        "without_skill": "satisfied"
+      },
+      "observation": "Both reject the unsupported confirmatory claim and preserve exploratory status.",
+      "limitations": "Neither adds a redundant permission question about an evidentially unsupported claim.",
+      "full_execution_criteria": "not assessed: no project artifact execution"
+    },
+    {
+      "skill": "omfa",
+      "id": 118,
+      "prompt": "I accept adding migration to conceptual-model.md. verification-report.md tests a closed population, calibration-report.md fitted migration-free data, validation-report.md uses that fit, and uncertainty-register.md assumes zero migration. CITATION.cff and the FAIR license inventory do not depend on migration. Apply the conceptual revision and tell us what can be reused.",
+      "with_skill": "The accepted conceptual revision adds migration; record your acceptance and preserve the previous revision. Verification-report.md is potentially-stale because its tests assume a closed population. Calibration-report.md requires review because its fit used migration-free data; validation-report.md requires review because it depends on that fit. Uncertainty-register.md must revisit the zero-migration assumption. Keep the old evidence as evidence for the former closed-population model, not as support for the revised model. Identify unaffected tests and data for possible reuse, but their applicability has not yet been established. CITATION.cff and the FAIR license inventory can be reused unchanged because the fixture establishes no migration dependency. Reassess OMFB handoff readiness and route implementation consequences there. Record dependency assertions and clear them only after documented review; the accepted conceptual change does not accept downstream scientific conclusions.",
+      "without_skill": "The conceptual revision can proceed under your acceptance. Preserve the prior closed-population version for traceability. Verification needs migration-specific and population-accounting checks; its existing closed-population tests remain useful for the zero-migration case. The previous calibration can be reused as a baseline, but cannot establish migration parameters or the revised fit. Validation based on that fit must be reassessed for the migration-enabled model. Replace the zero-migration assumption in the uncertainty register with migration-related uncertainties and sensitivity analyses. CITATION.cff and the FAIR license inventory can be reused because they do not depend on this change. The actual files are not provided here, so these are the required edits and reuse assessment rather than completed file changes.",
+      "response_word_count": {
+        "with_skill": 128,
+        "without_skill": 113
+      },
+      "exploratory_response_criterion": "Identifies migration-dependent review needs and preserves unrelated citation/license material",
+      "observed_criterion_satisfaction": {
+        "with_skill": "satisfied",
+        "without_skill": "satisfied"
+      },
+      "observation": "With skill identifies affected dependencies and conditional reuse; baseline says to replace the zero-migration assumption without explicitly retaining that downstream revision for review.",
+      "limitations": "No dependency assertions or reviews were persisted; with-skill text does not explicitly label all four dependencies potentially-stale.",
+      "full_execution_criteria": "not assessed: no project artifact execution"
+    },
+    {
+      "skill": "omfa",
+      "id": 119,
+      "prompt": "OMFA lists ten MUST requirements. All are satisfied by accepted artifacts. Make a concise lifecycle handoff summary from them; please ask me to approve each requirement individually so we do not miss anything.",
+      "with_skill": "Lifecycle handoff: the supplied project state reports all ten requirements satisfied by accepted artifacts. Preserve their existing acceptance and evidence links in the handoff; nothing in that state requires reopening the decisions. Your requested individual confirmations can be treated as an optional checklist rather than new scientific approvals. To start that checklist: requirement 1, fit for purpose, is recorded as satisfied—do you confirm retaining that assessment? This extra confirmation is at your request, not a gate imposed by a MUST label.",
+      "without_skill": "Lifecycle handoff: all ten stated requirements are satisfied by accepted artifacts. Preserve their requirement-to-artifact links and carry forward each artifact's scope and limitations; the handoff itself introduces no new scientific decisions. For the individual confirmation you requested, please confirm requirements 1–10 in one reply, for example ‘1–10 approved,’ or list exceptions. I would need their text and artifact references to produce a specific item-by-item summary rather than invent requirement names.",
+      "response_word_count": {
+        "with_skill": 81,
+        "without_skill": 70
+      },
+      "exploratory_response_criterion": "Does not claim MUST labels independently require scientific approval",
+      "observed_criterion_satisfaction": {
+        "with_skill": "satisfied",
+        "without_skill": "satisfied"
+      },
+      "observation": "Both distinguish requested confirmations from newly required scientific approvals.",
+      "limitations": "With skill starts an individual checklist; baseline batches confirmations. The prompt explicitly asks for individual approval, so this is not evidence of unsolicited over-gating.",
+      "full_execution_criteria": "not assessed: no project artifact execution"
+    },
+    {
+      "skill": "omfa",
+      "id": 120,
+      "prompt": "We have 60 accepted assumptions and 12 accepted lifecycle artifacts. Fix their broken relative links, normalize headings, and summarize readiness. Preserve all scientific meaning. The files contain many MUST labels.",
+      "with_skill": "Proceed with one editorial maintenance pass across the 60 assumptions and 12 artifacts: repair relative links against existing targets and normalize heading structure while preserving meaning, acceptance, and uncertainty. Summarize readiness from the existing accepted evidence; MUST labels do not require new approvals. These editorial changes alone do not make scientific dependencies stale. Ambiguous link targets should remain explicitly unresolved rather than being guessed. The fixture supplies no actual file contents or target paths, so specific link repairs and an inspected readiness assessment cannot be reported as completed here.",
+      "without_skill": "Treat this as an editorial maintenance pass: repair relative links and anchors, normalize heading levels, and preserve all 60 assumptions and the scientific content of the 12 accepted artifacts. Check link resolution and inspect the diff for unintended meaning changes. Readiness remains supported by the existing accepted evidence, subject to its recorded limitations; heading and link repairs do not provide new scientific evidence. MUST labels alone do not require reopening accepted decisions. I need the files to perform the edits and report their verified state.",
+      "response_word_count": {
+        "with_skill": 89,
+        "without_skill": 85
+      },
+      "exploratory_response_criterion": "Does not require per-artifact or per-requirement approval for editorial maintenance",
+      "observed_criterion_satisfaction": {
+        "with_skill": "satisfied",
+        "without_skill": "satisfied"
+      },
+      "observation": "Both proceed with editorial maintenance and avoid reopening scientific decisions; with skill explicitly says dependencies are not stale.",
+      "limitations": "Link repair and readiness inspection were not executed.",
+      "full_execution_criteria": "not assessed: no project artifact execution"
+    },
+    {
+      "skill": "omfa",
+      "id": 121,
+      "prompt": "Workshop notes say farmers disagree with the agency about irrigation behavior. The agency proposes excluding farmers from future workshops and using its own behavior estimates as consensus. Finalize the participatory assumptions.",
+      "with_skill": "The workshop record contains disagreement, so agency estimates cannot truthfully be labeled consensus. Draft the assumptions as competing farmer and agency accounts, preserve their sources, and leave the behavior choice provisional. Excluding farmers would remove an affected group's opportunity to influence the model; record that proposed governance change and its consequences in the participation plan and stakeholder register. Recommend retaining farmer participation and comparing the competing behavior assumptions. Finalization requires the authorized governance decision, with dissent preserved even if one assumption is selected. Who has authority to resolve participation and assumption selection? OMFA's Deliberate Gates contract requires this resolution before adopting consequential exclusion or settling participants' disagreement.",
+      "without_skill": "Do not record agency estimates as stakeholder consensus while farmers explicitly disagree. Draft the assumptions as contested, distinguishing the agency's estimates from farmers' accounts and documenting the evidence and consequences of each. Keep farmers represented in further engagement and make decision authority explicit. If a decision is required before agreement, label it as an agency decision with unresolved dissent, and test plausible alternative behavior assumptions rather than presenting it as participatory agreement.",
+      "response_word_count": {
+        "with_skill": 107,
+        "without_skill": 72
+      },
+      "exploratory_response_criterion": "Does not misrepresent disputed stakeholder input as consensus",
+      "observed_criterion_satisfaction": {
+        "with_skill": "satisfied",
+        "without_skill": "satisfied"
+      },
+      "observation": "Both preserve disagreement; with skill explicitly asks for decision authority before exclusion or assumption adoption.",
+      "limitations": "Stakeholder governance and actual authority cannot be established from the fixture.",
+      "full_execution_criteria": "not assessed: no project artifact execution"
+    },
+    {
+      "skill": "omfa",
+      "id": 122,
+      "prompt": "We cannot justify probabilities for three flood scenarios. Pick the middle scenario, remove the other two, and call the resulting policy robust.",
+      "with_skill": "A middle scenario alone cannot establish robustness across three plausible futures. Retain all three in the scenario register without invented probabilities. If you want a middle-scenario illustration, label it as conditional on that scenario and preserve the excluded scenarios in the record. Recommend comparing policy outcomes across all three against explicit performance thresholds, including failure conditions. Draft the comparison and record the proposed scope reduction in decision-log.md; the robustness claim remains unsupported until the comparison supplies evidence. What performance thresholds should define acceptable policy performance?",
+      "without_skill": "Selecting the middle scenario would not establish robustness. Retain all three as plausible scenarios without assigning unsupported probabilities, and evaluate policy performance against explicit success thresholds across them. Report failures, tradeoffs, and any options that perform adequately across all three. If only the middle scenario is analyzed, describe the result as conditional on that scenario and leave robustness unassessed.",
+      "response_word_count": {
+        "with_skill": 85,
+        "without_skill": 59
+      },
+      "exploratory_response_criterion": "Does not call the single-scenario result robust",
+      "observed_criterion_satisfaction": {
+        "with_skill": "satisfied",
+        "without_skill": "satisfied"
+      },
+      "observation": "Both preserve scenarios and reject unsupported robustness; with skill asks for performance thresholds.",
+      "limitations": "Actual scenario comparison and scoped governance resolution were not exercised.",
+      "full_execution_criteria": "not assessed: no project artifact execution"
+    },
+    {
+      "skill": "omfa",
+      "id": 123,
+      "prompt": "I delegate the unresolved contact-mechanism decision to our epidemiologist, who has not replied. Continue preparing the implementation handoff.",
+      "with_skill": "Prepare the handoff's independent sections using accepted scientific inputs. Record the contact mechanism as provisional, delegated to the epidemiologist for that specific decision, with their response pending. Include both alternatives, their different growth implications, and a restriction against treating either as the accepted implementation specification. Keep contact-dependent implementation choices on hold; delegation is not acceptance. Supply OMFB the accepted conceptual model, assumptions, and authoritative abm-spec.md if available; if the ABM specification is absent, route its preparation to OMFA rather than reconstructing it in implementation planning.",
+      "without_skill": "Continue preparing the shared implementation structure, interfaces, data requirements, and tests that do not depend on the contact mechanism. Record the epidemiologist as decision owner and the mechanism as pending; document both candidate implementations and their scientific consequences. Leave the production default and mechanism-dependent acceptance criteria unresolved. The handoff can be circulated as a draft with that dependency clearly marked, but silence from the epidemiologist does not settle the scientific choice.",
+      "response_word_count": {
+        "with_skill": 85,
+        "without_skill": 71
+      },
+      "exploratory_response_criterion": "Does not treat pending delegation as acceptance",
+      "observed_criterion_satisfaction": {
+        "with_skill": "satisfied",
+        "without_skill": "satisfied"
+      },
+      "observation": "Both preserve pending delegation and continue independent handoff preparation.",
+      "limitations": "No response from the delegated epidemiologist was simulated.",
+      "full_execution_criteria": "not assessed: no project artifact execution"
+    },
+    {
+      "skill": "omfa",
+      "id": 124,
+      "prompt": "The model card is marked current and its last review says reviewed, but its new national-use claim is labeled gated pending validation. Use it as accepted evidence that the model is fit for national policy.",
+      "with_skill": "The national-use claim remains unresolved. 'Current' and 'reviewed' do not override its explicit gate pending validation. It cannot serve as accepted evidence of fitness for national policy. Carry that restriction into the model-card summary and decision-log.md, preserve evidence for any narrower accepted use, and identify the national-scale validation evidence required before reconsidering the claim. No supplied evidence establishes that validation has occurred.",
+      "without_skill": "The model card does not establish fitness for national policy: that specific claim remains gated pending validation. ‘Current’ and ‘reviewed’ describe the document's status, not acceptance of every claim. Cite only the uses supported by accepted evidence, identify national use as unvalidated, and specify the validation evidence needed before relying on it for national-policy decisions.",
+      "response_word_count": {
+        "with_skill": 62,
+        "without_skill": 55
+      },
+      "exploratory_response_criterion": "Does not use the gated national claim as accepted evidence",
+      "observed_criterion_satisfaction": {
+        "with_skill": "satisfied",
+        "without_skill": "satisfied"
+      },
+      "observation": "Both reject treating the gated claim as accepted despite current/reviewed labels.",
+      "limitations": "No model-card edit was executed.",
+      "full_execution_criteria": "not assessed: no project artifact execution"
+    },
+    {
+      "skill": "omfb",
+      "id": 12,
+      "prompt": "Update the implementation plan to move output serialization into a separate module. Accepted scientific assumptions, numerical operations, random streams, and scheduling remain identical. There are 40 module mappings to update.",
+      "with_skill": "Proceed with the implementation-plan revision and all 40 module mappings. Output serialization becomes a separate module, with callers and data contracts mapped accordingly; accepted scientific assumptions, numerical operations, random streams, and scheduling stay identical. This is a routine architecture change with no new scientific approval needed. Include a verification checkpoint for serialized-output equivalence and unchanged model outputs, and record implementation revision provenance. The fixture does not include the mappings or code, so concrete edits and verification execution remain outside this response-level plan.",
+      "without_skill": "Update all 40 mappings to assign output serialization to a dedicated module, with callers passing the same output data through a defined interface. Preserve computation order, numerical operations, random-stream use, and scheduling. Record the refactor as a structural change and verify equivalent serialized outputs on representative fixtures, including ordering and formatting where consumers depend on them. No new scientific approval is needed for this stated change. The plan itself is not provided here, so I cannot claim the mappings have been edited.",
+      "response_word_count": {
+        "with_skill": 82,
+        "without_skill": 82
+      },
+      "exploratory_response_criterion": "Does not demand scientific approval for a meaning-preserving implementation change",
+      "observed_criterion_satisfaction": {
+        "with_skill": "satisfied",
+        "without_skill": "satisfied"
+      },
+      "observation": "Both proceed with routine implementation planning without scientific approval; with skill includes provenance.",
+      "limitations": "No mappings, output comparisons, or plan revisions were executed.",
+      "full_execution_criteria": "not assessed: no project artifact execution"
+    },
+    {
+      "skill": "omfb",
+      "id": 13,
+      "prompt": "Optimize the ABM implementation plan by switching synchronous interactions to sequential updates. Both implementations are technically feasible, but order changes contagion outcomes. No scientific approval has been given.",
+      "with_skill": "Keep synchronous interactions in the accepted implementation plan. Sequential updates change contagion outcomes, so this is a scientific scheduling change rather than an interchangeable optimization. Prepare an OMFA decision package with the observed outcome difference, synchronous and sequential alternatives, uncertainty about scientific appropriateness, and effects on abm-spec.md, assumptions.md, verification, calibration, and evaluation. Mark the proposed sequential plan draft and do not propagate it as accepted. Continue performance work that preserves synchronous semantics. If abm-spec.md is missing, obtain it through OMFA before dependent ABM planning proceeds; do not infer a replacement specification.",
+      "without_skill": "Retain synchronous interactions in the accepted implementation plan. Sequential updates change contagion outcomes, making this a scientific model change rather than an equivalent optimization. Document sequential updating as a proposed alternative, with expected order effects and a controlled comparison against synchronous execution. Obtain scientific approval before adopting it or changing the model's accepted scheduling assumptions; pursue optimizations that preserve synchronous semantics in the meantime.",
+      "response_word_count": {
+        "with_skill": 91,
+        "without_skill": 64
+      },
+      "exploratory_response_criterion": "Does not adopt consequential scheduling changes without scientific resolution",
+      "observed_criterion_satisfaction": {
+        "with_skill": "satisfied",
+        "without_skill": "satisfied"
+      },
+      "observation": "Both preserve synchronous scheduling pending scientific resolution; with skill explicitly routes the decision package to OMFA.",
+      "limitations": "No outcome comparison or formal decision package artifact was produced.",
+      "full_execution_criteria": "not assessed: no project artifact execution"
+    }
+  ],
+  "limitations": [
+    "Exact model checkpoint and runtime build unavailable; this is not a qualifying stewardship evaluation claim.",
+    "No real artifact edits, persisted provenance, dependency assertions, or tool-execution behavior were assessed. Full suite execution criteria remain unknown.",
+    "Single run per condition with shared context across cases; no randomization or independent grader.",
+    "Both conditions retain repository/session instructions; baseline is not instruction-free.",
+    "Response length measures verbosity only, not latency, tokens, tool cost, or end-to-end efficiency.",
+    "The narrow response criteria were observed as satisfied in both conditions; no aggregate improvement claim is warranted."
+  ],
+  "validation": {
+    "canonical": "make validate could not start lint: Docker Desktop Linux engine pipe unavailable",
+    "local_fallback": "Make targets with TOOLS_RUN=python3: eval schema, provenance, stewardship (at refresh time), and individual skill structural checks completed; 13 routing criteria met before report write failed",
+    "remaining": "Canonical container lint and citation checks not run. Local make test did not complete because pre-existing results_cross.json is not writable. Full refresh also picked up a pre-existing peer-review/SKILL.md~ backup; the unrelated peer-review stewardship change from refresh was reverted to preserve user state."
+  }
+}

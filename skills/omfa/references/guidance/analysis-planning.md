@@ -135,6 +135,12 @@ Avoid modifying the analysis plan in response to observed results without docume
 
 ---
 
+## Deliberate Gate Triggers
+
+Apply the parent `SKILL.md` Deliberate Gates contract. Gate before post hoc changes to hypotheses, evaluation criteria, primary outputs, or confirmatory analyses, and before promoting exploratory findings into confirmatory claims. Preserve the original plan and exploratory status; approval of a revised plan does not retroactively make observed findings confirmatory.
+
+---
+
 ## Intermediate Artifacts
 
 Generate or maintain, as appropriate:

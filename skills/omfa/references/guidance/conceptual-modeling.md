@@ -117,6 +117,12 @@ Avoid embedding implementation details in the conceptual model.
 
 ---
 
+## Deliberate Gate Triggers
+
+Apply the parent `SKILL.md` Deliberate Gates contract. Gate before establishing or materially changing system boundaries, intended use, major abstractions, or hypothesized mechanisms beyond accepted project state. Where defensible representations imply different explanations or uses, surface that choice before adopting one.
+
+---
+
 ## Intermediate Artifacts
 
 Generate or maintain, as appropriate:

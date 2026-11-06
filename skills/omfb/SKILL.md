@@ -126,7 +126,7 @@ OMFB MUST NOT:
 - reinterpret scientific assumptions for implementation convenience;
 - introduce implementation-driven behavior without documenting and justifying it.
 
-If implementation constraints require changes to scientific assumptions or conceptual structure, pause planning and recommend revising affected upstream artifact(s).
+If an implementation choice materially changes scientific meaning, pause only the dependent work and route the proposed choice, evidence, alternatives, and affected artifacts to OMFA under its Deliberate Gates contract. Do not adopt unresolved scientific decisions, including deferred or delegated ones, as implementation specifications. Proceed with independent work and routine choices that preserve accepted scientific intent; do not re-gate an explicitly authorized decision within its accepted scope.
 
 ## Gotchas
 

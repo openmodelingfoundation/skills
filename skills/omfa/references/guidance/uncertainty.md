@@ -93,6 +93,12 @@ Avoid presenting uncertainty estimates as evidence of predictive certainty.
 
 ---
 
+## Deliberate Gate Triggers
+
+Apply the parent `SKILL.md` Deliberate Gates contract. Gate before omitting consequential uncertainty sources, narrowing assumptions or ranges, or selecting among competing model forms when the choice changes interpretation and lacks accepted justification. Preserve unresolved uncertainty rather than silently replacing it with a point estimate or confident conclusion.
+
+---
+
 ## Intermediate Artifacts
 
 Generate or maintain, as appropriate:

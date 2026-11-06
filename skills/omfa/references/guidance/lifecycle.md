@@ -161,14 +161,16 @@ These artifacts should evolve throughout the project and remain available for do
 
 Store these artifacts in `omf-artifacts/` at the project root, and keep `omf-artifacts/README.md` current with artifact status and review-trigger conventions.
 
-**Dependency edges.** These artifacts are not independent; a change to one frequently invalidates claims in another. Dependency edges are intentionally sparse. Only record dependencies that are consequential and likely to invalidate downstream reasoning. At minimum, track:
+**Dependency edges.** These artifacts are not independent; a change to one frequently invalidates claims in another. Dependency edges are intentionally sparse. Only record dependencies that are consequential and likely to invalidate downstream reasoning. For material changes to scientific meaning, track these dependencies where the downstream artifact uses the changed commitment; editorial maintenance does not trigger review:
 
 - A change to `assumptions.md` MUST trigger a review of `validation-report.md` and `uncertainty-register.md` for continued consistency.
 - A change to `conceptual-model.md` MUST trigger a review of whether the project is still ready to hand off to `omfb`, plus any `verification-report.md` and completed `calibration-report.md` or `validation-report.md` that depend on the changed conceptual structure.
 - A change to data sourcing recorded under Data and Evidence Assessment MUST trigger a review of `calibration-report.md`, `uncertainty-register.md`, and `sensitivity-analysis-plan.md`.
 - A change to `calibration-report.md` MUST trigger a review of `validation-report.md`.
 
-When flagging a downstream review, name the specific artifact and the reason it may now be stale — do not flag broadly across all artifacts by default, as that erodes the signal value of the flag.
+When flagging a downstream review, name the specific artifact and the changed commitment it depends on, explain why it may be stale, and record a `potentially-stale` dependency assertion under the parent artifact contract. Do not flag unrelated artifacts or silently rewrite or re-accept dependent content. Route revisions outside OMFA ownership to the owning skill.
+
+Apply the parent `SKILL.md` Deliberate Gates contract before propagating a consequential proposal as accepted knowledge or using affected downstream conclusions whose continued validity requires human judgment. An accepted upstream change does not automatically accept its downstream implications. Existing authorization covers faithful deterministic updates within its scope; gate only remaining consequential judgments. Preserve prior revisions, unresolved decisions, and use restrictions in handoffs. Clear a dependency flag only with a recorded review or revision activity supporting that resolution; continue work unaffected by the change.
 
 ---
 
@@ -192,7 +194,7 @@ When flagging a downstream review, name the specific artifact and the reason it 
 
 **Primary entry point**
 
-Use this guidance to coordinate the overall computational modeling lifecycle and determine which specialized guidance should be applied next. Routing decisions below are conditional gates, not a fixed reading order. Evaluate the condition against the project's current state.
+Use this guidance to coordinate the overall computational modeling lifecycle and determine which specialized guidance should be applied next. Routing decisions below are conditional handoffs, not automatic human-review gates or a fixed reading order. Evaluate the condition against the project's current state.
 
 - Route to `conceptual-modeling.md` IF the project has a problem statement but lacks a reviewable conceptual model, or IF abstraction, system boundaries, or modeling paradigm decisions need to be made or revisited.
 - Route to `uncertainty.md` IF uncertainty can be meaningfully characterized using probability distributions or standard sensitivity methods.

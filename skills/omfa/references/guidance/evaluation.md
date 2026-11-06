@@ -110,6 +110,12 @@ Avoid presenting successful calibration or agreement with observations as proof 
 
 ---
 
+## Deliberate Gate Triggers
+
+Apply the parent `SKILL.md` Deliberate Gates contract. Gate before adopting claims of credibility, validity, fitness for purpose, or supported scope when their evidential sufficiency or uncertainty still needs judgment. Reporting measured results against accepted criteria needs no new gate; extending their interpretation beyond that scope does.
+
+---
+
 ## Intermediate Artifacts
 
 Generate or maintain, as appropriate:

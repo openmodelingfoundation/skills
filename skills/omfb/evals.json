@@ -157,6 +157,42 @@
       },
       "success_criteria": ["Records a revise activity linked to upstream scientific artifacts", "Preserves upstream scientific authority"],
       "failure_modes": ["missing_provenance", "boundary_violation"]
+    },
+    {
+      "id": 12,
+      "type": "adversarial",
+      "prompt": "Update the implementation plan to move output serialization into a separate module. Accepted scientific assumptions, numerical operations, random streams, and scheduling remain identical. There are 40 module mappings to update.",
+      "should_trigger": true,
+      "behavior": [
+        "Proceed with the routine implementation plan and mapping updates without scientific approval requests",
+        "Preserve inherited scientific intent and do not route routine work to OMFA"
+      ],
+      "success_criteria": [
+        "Proceed with the routine implementation plan and mapping updates without scientific approval requests",
+        "Preserve inherited scientific intent and do not route routine work to OMFA"
+      ],
+      "failure_modes": [
+        "boundary_violation",
+        "redundant_actions"
+      ]
+    },
+    {
+      "id": 13,
+      "type": "adversarial",
+      "prompt": "Optimize the ABM implementation plan by switching synchronous interactions to sequential updates. Both implementations are technically feasible, but order changes contagion outcomes. No scientific approval has been given.",
+      "should_trigger": true,
+      "behavior": [
+        "Pause the dependent choice and route its scientific implications, alternatives, and evidence to OMFA",
+        "Continue independent planning without accepting the new schedule as scientific intent"
+      ],
+      "success_criteria": [
+        "Pause the dependent choice and route its scientific implications, alternatives, and evidence to OMFA",
+        "Continue independent planning without accepting the new schedule as scientific intent"
+      ],
+      "failure_modes": [
+        "boundary_violation",
+        "redundant_actions"
+      ]
     }
   ]
 }
