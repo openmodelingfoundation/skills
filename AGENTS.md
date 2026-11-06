@@ -51,6 +51,14 @@ When a task spans multiple agent sessions or requires explicit transfer of conte
 
 Handoffs are transient working documents, not project artifacts. Archive or remove them when no longer needed.
 
+## Commit message review
+
+Before every consequential agent-created commit capable of affecting scientific claims, prepare the changes and checks, then present the proposed changes, affected claims, supporting evidence and uncertainty, and complete commit message including trailers. Ask the user to approve that specific commit and wait. Approval of wording alone, a general request to commit, or acceptance of an upstream scientific decision does not authorize an unreviewed consequential commit. Prior explicit approval of the same changes and message satisfies the gate; changed scope requires renewed approval. Routine commits that preserve scientific meaning need no such gate, but still require authorization to commit. Do not create a commit merely to satisfy this rule.
+
+Use a native choice-and-free-text question interface when available; otherwise offer the same choices in plain text. Offer approve, revise, or defer, accept natural-language feedback, and never treat a default selection or silence as approval.
+
+List actual contributing OMF skills in `OMF-Skills` and other contributing skills in `Agent-Skills`, with comma-separated names and no empty or duplicate entries. Classify by the skill’s source, not the files being edited. Preserve legitimate `Co-authored-by` attribution without repeating the email in a skill trailer. Keep exact executed skill revisions in provenance records; timestamps alone do not identify content. Trailers identify contributions, not artifact ownership. Review and commit one changeset at a time. See [the commit provenance convention](docs/skill-contracts.md#commit-provenance-and-message-review).
+
 ## Repository design principles
 
 The repository prioritizes methodological correctness, transparency, reviewability, and maintainability. It exists to encode community methodological knowledge that foundation models do not consistently possess, not generic software engineering or modeling advice.

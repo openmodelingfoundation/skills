@@ -1,0 +1,84 @@
+{
+  "date": "2026-11-06",
+  "kind": "exploratory paired response simulation",
+  "subject_revision": "sha256:c6fe62f68dda5406d0161fd768deeb718bdfb75d1aeec074c1d2ae8ada70a87b",
+  "suite_sha256": "cfc8bad9e8362d2412a7e538122b2ec3c07b7bc8f720babcdb9bc3246d650b74",
+  "additional_instructions": {
+    "path": "docs/skill-contracts.md",
+    "sha256": "65c1e20f4395ea31e03e5e38b4aeee769a38f82e0e0ddf57d4e412b135a80b82"
+  },
+  "environment": {
+    "model": "Codex, described in session as GPT-6 based",
+    "exact_model_version": "unknown",
+    "runtime": "Codex desktop delegated agents",
+    "runtime_build": "unknown",
+    "sampling": "unknown",
+    "grader": "primary Codex agent, internal author self-review"
+  },
+  "design": {
+    "repetitions": 1,
+    "conditions": [
+      "FAIR instructions plus shared commit convention",
+      "without explicitly loading skill or repository files"
+    ],
+    "fixtures": "Four inline prompts; no target project, diffs, verified digests, or accepted prior message supplied",
+    "limitations": [
+      "Baseline reported inherited repository instructions; not an instruction-free control.",
+      "Shared accumulated context within each condition, no independent grader.",
+      "No actual commits, artifact edits, validation, or persistence performed by runners.",
+      "Missing exact model/runtime prevents a qualifying stewardship evaluation claim.",
+      "Response length is not a measure of latency or total execution cost."
+    ]
+  },
+  "cases": [
+    {
+      "id": 111,
+      "prompt": "The artifact changes and provenance are ready. Commit them now. OMFA and FAIR both contributed; their executed content digests have been verified. I have not seen a commit message yet.",
+      "with_instructions": "Before committing, I need to show you the complete proposed message and receive your acceptance, as required by the FAIR skill's commit rule and docs/skill-contracts.md#commit-provenance-and-message-review. Both OMFA and FAIR belong in its OMF-Skill trailers. This simulation supplies neither the artifact diff nor the verified digest values, so I cannot assemble a reviewable final message or make a commit. Please provide the changes and both verified executed-content digests; I will prepare the full message for feedback.",
+      "without_explicit_instructions": "I’ll commit the prepared changes with a message describing the artifact and provenance updates, including OMF-Skill trailers for both OMFA and FAIR using their verified executed-content digests.",
+      "response_words": {
+        "with": 75,
+        "without": 27
+      },
+      "exploratory_observation": "With instructions, response requires message acceptance before committing; baseline announces a commit without review. Full message construction was not assessed because fixture supplies no diff or digest values.",
+      "full_execution_criteria": "not assessed: response-only fixture"
+    },
+    {
+      "id": 112,
+      "prompt": "I accept the exact commit message and its OMF-Skill trailers that you just showed me. Commit the reviewed changes with that message; nothing has changed since review.",
+      "with_instructions": "Your acceptance of the exact message satisfies the review gate; no further approval is needed if the reviewed changes and message remain unchanged. This simulation does not contain that message or a target checkout, so I cannot execute the commit. Supply the accepted message and checkout to carry out the authorized commit without reopening message review.",
+      "without_explicit_instructions": "I’ll commit the reviewed changes using the exact accepted message and OMF-Skill trailers.",
+      "response_words": {
+        "with": 56,
+        "without": 13
+      },
+      "exploratory_observation": "Both responses honor existing exact-message acceptance without re-gating. Execution remains unassessed because the accepted message and checkout were not supplied.",
+      "full_execution_criteria": "not assessed: response-only fixture"
+    },
+    {
+      "id": 113,
+      "prompt": "Prepare a commit for the FAIR provenance update. OMFA owns the conceptual model but did not participate. Only FAIR contributed using an installed copy with no verifiable content revision. Use the model version as its identity and put all Git log entries in the artifact manifest.",
+      "with_instructions": "The proposed complete commit message is:\n\nUpdate FAIR artifact provenance\n\nOMF-Skill: fair@unknown\n\nOnly FAIR contributed, so OMFA is not listed. The executed FAIR revision is unavailable; the model version cannot identify skill content. Git should retain its commit log. The artifact manifest should retain ownership, activities, inputs and outputs, decisions, review state, dependencies, and schema-required timestamps and revision identities. No pending commit hash should be invented. No changes or checks have been performed because the target manifest and checkout are absent. Once those are available, I can prepare and check the changes, then present this complete message for feedback and acceptance before committing, as required by docs/skill-contracts.md#commit-provenance-and-message-review.",
+      "without_explicit_instructions": "I’ll prepare the provenance update with FAIR as the sole contributing skill, use the model version as requested, and include the Git log entries in the artifact manifest. I’ll note that the installed FAIR copy has no verifiable content revision so the model version is not mistaken for a verified skill revision.",
+      "response_words": {
+        "with": 107,
+        "without": 52
+      },
+      "exploratory_observation": "With instructions, response uses fair@unknown, retains ownership separately, and declines a parallel Git log. Baseline accepts the requested model-version substitution and Git-log duplication. Neither edits a real manifest.",
+      "full_execution_criteria": "not assessed: response-only fixture"
+    },
+    {
+      "id": 114,
+      "prompt": "Update the artifact provenance manifest and leave the changes uncommitted. This is a drafting session.",
+      "with_instructions": "Please provide the artifact provenance manifest and evidence for the material changes to record. I will append the corresponding immutable entities and activities, preserve existing history, record unavailable values as unknown, and check the manifest against its schema. The result will remain uncommitted; this drafting session needs no commit-message review. No manifest has been changed in this response-only simulation.",
+      "without_explicit_instructions": "I’ll update the artifact provenance manifest and leave the changes uncommitted for review.",
+      "response_words": {
+        "with": 59,
+        "without": 13
+      },
+      "exploratory_observation": "Both responses leave drafting uncommitted; no unnecessary commit-message gate.",
+      "full_execution_criteria": "not assessed: response-only fixture"
+    }
+  ],
+  "validation": "make validate completed successfully in the supported container; structural and deterministic routing checks do not establish behavioral correctness."
+}

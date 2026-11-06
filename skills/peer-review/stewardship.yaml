@@ -4,10 +4,10 @@ skill:
   repository: https://github.com/openmodelingfoundation/skills
 subject-revision:
   algorithm: sha256-manifest-v1
-  digest: sha256:58364fda2c849986611d4950057e4b34e0c0264216682e4aef14935c5dc9552b
+  digest: sha256:f7bd2bbfa661f891d22377164292477bc98b677328fb805ee3613d78366b5f81
   manifest:
   - path: SKILL.md
-    digest: sha256:70702afffbcdd6a1f23a54d85ee0db7f103d9a1cd63d1873a4da1ed4120d1c57
+    digest: sha256:a620f27f5df21ffa45e06fcc2a6f2f5d80afebb4ee844eeda22dc5a6079cae5d
   - path: assets/AUTHOR-RESPONSE-CHECKLIST-TEMPLATE.md
     digest: sha256:8ec2ec63cd05444f28350d26726d7a311b01e61c26f8b1d2063340f25cbff89d
   - path: assets/COMSES-REVIEWS-COMPRESSED.md

@@ -83,6 +83,8 @@ Use `omf-artifacts/fair/provenance-manifest.json` as the canonical project-level
 
 Skill identity follows the repository release when installed from a release. Record the exact Git revision when running from a checkout; otherwise record a content hash when practical. The manifest schema is owned by `fair`; other skills may append conforming evidence for artifacts they create or revise.
 
+Every independently installed skill must retain the operational commit rule: request explicit approval of every consequential commit capable of affecting scientific claims, presenting its changes, scientific implications, and complete message before committing. Message approval alone is insufficient; routine meaning-preserving commits need no scientific gate. Use compact `OMF-Skills` and `Agent-Skills` trailers for actual contributing OMF and other skills respectively; omit empty trailers and retain exact executed revisions in provenance records. Follow `docs/skill-contracts.md` under Commit provenance and message review. Keep artifact ownership in the manifest and avoid duplicating Git history. Prefer native choices plus free-text feedback when available, with a plain-text fallback for other agents; no default or silence constitutes approval.
+
 ### Evaluation
 
 Evaluation gathers scoped evidence about observed skill behavior; it does not

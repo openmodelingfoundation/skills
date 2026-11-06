@@ -34,6 +34,7 @@ metadata:
 - **Completion:** Every in-scope CoMSES criterion and central scientific claim has an evidence-based rating or an explicit not-assessable basis; the binary recommendation follows the three-criterion scoring rule.
 - **Failure:** Issue a constrained review when evidence is missing and never infer a pass from absence of evidence.
 - **Provenance:** Record persisted review reports and review assertions as immutable activities without rewriting earlier findings or dispositions.
+- **Commits:** Before a commit that could affect scientific claims, present its changes, affected claims, evidence, uncertainty, and full message; request approval of that specific commit and wait. Review one commit at a time. Wording approval alone is insufficient; prior approval covers only unchanged reviewed changes and message. Routine meaning-preserving commits still need authorization but no scientific gate. Prefer native approve/revise/defer choices with free-text feedback; otherwise use plain text. Defaults or silence are not approval. List actual contributing OMF skills in `OMF-Skills` and other contributing skills in `Agent-Skills`, using comma-separated names and omitting empty trailers. Preserve legitimate `Co-authored-by` attribution. Keep exact executed revisions and ownership in provenance; do not duplicate Git history. This rule does not itself authorize a commit.
 
 ## When to Use This Skill
 

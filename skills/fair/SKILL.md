@@ -45,6 +45,7 @@ The FAIR Management Plan is the project's sole canonical stewardship document an
 - **Completion:** Required stewardship outputs are coherent, validated, linked to their objects, and qualified where identifiers or evidence remain unavailable.
 - **Failure:** Use `unknown`, record blocked external actions, and never imply publication, archival, or verification that did not occur.
 - **Provenance:** Maintain the canonical manifest and validate immutable entities, activities, authorization, reviews, privacy, and stale dependencies.
+- **Commits:** Before a commit that could affect scientific claims, present its changes, affected claims, evidence, uncertainty, and full message; request approval of that specific commit and wait. Review one commit at a time. Wording approval alone is insufficient; prior approval covers only unchanged reviewed changes and message. Routine meaning-preserving commits still need authorization but no scientific gate. Prefer native approve/revise/defer choices with free-text feedback; otherwise use plain text. Defaults or silence are not approval. List actual contributing OMF skills in `OMF-Skills` and other contributing skills in `Agent-Skills`, using comma-separated names and omitting empty trailers. Preserve legitimate `Co-authored-by` attribution. Keep exact executed revisions and ownership in provenance; do not duplicate Git history. This rule does not itself authorize a commit.
 
 ## Responsibility
 

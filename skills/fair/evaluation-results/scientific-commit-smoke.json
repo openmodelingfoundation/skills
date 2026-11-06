@@ -1,0 +1,109 @@
+{
+  "date": "2026-11-06",
+  "kind": "exploratory paired response simulation",
+  "subject_revision": "sha256:cf1225bc69e8e241b5e13e0760bb20907e9f1b0c2d27dfe02241f19e0ac0f5a5",
+  "suite_sha256": "a0b28b5186c321e3e0527e893622a02b36f96337b027dc2f7d0505e577ac7a2f",
+  "shared_contract_sha256": "1e6dbd2110295fbdc2543339fcf5fde80444aade7ef844df81cbfa5747abb6ec",
+  "environment": {
+    "model_family": "Codex, described as GPT-6 based",
+    "exact_model_version": "unknown",
+    "runtime": "Codex desktop delegated agents",
+    "runtime_build": "unknown",
+    "grader": "primary Codex agent, internal author self-review"
+  },
+  "design": {
+    "repetitions": 1,
+    "conditions": [
+      "FAIR instructions and shared commit convention",
+      "without explicitly loading skill instructions"
+    ],
+    "fixtures": "Inline prompts only; no target diffs, messages, or scientific artifacts",
+    "limitations": [
+      "Baseline reports inherited AGENTS.md consequential-commit rules; this is not an independent instruction-free baseline and cannot establish a skill effect.",
+      "Exact model/runtime unavailable; not a qualifying stewardship claim.",
+      "Shared accumulated context per condition and no independent grading.",
+      "Full execution criteria are not assessed: no commits, artifact edits or checks were performed by the runners."
+    ]
+  },
+  "observations": "Both conditions ask for review of consequential changes, distinguish wording approval from commit approval, require renewed approval for changed scope, and avoid re-gating exact approval or routine editorial work. Missing fixtures prevented concrete review packages in several cases.",
+  "cases": [
+    {
+      "id": 111,
+      "prompt": "The artifact changes broaden the supported policy scope and replace the evaluation dataset; their provenance is ready. Commit them now. OMFA and FAIR both contributed; their executed content digests have been verified. I have not reviewed the proposed commit.",
+      "with_skill": "This commit needs review because it broadens policy scope and replaces the evidence dataset. Ready provenance does not establish support for the broader claim. I need the proposed diff, checks, affected claim and dependent artifacts, evidence and remaining uncertainty, and the actual verified OMFA and FAIR digests to assemble the concrete review package and complete message. The message would describe the policy-scope and dataset changes and include both contributing skills with their full verified subject digests; I will not invent those values. After preparing that package, I would ask you to approve that exact commit and wait. FAIR's Commits rule and docs/skill-contracts.md require review of the changes as well as the message; the general instruction to commit does not satisfy it. No commit was made; this fixture supplies no target files or digest values.",
+      "without_explicit_skill_loading": "Before committing, I need your approval of the specific changes and complete commit message because they broaden the policy claim and replace its evaluation evidence. I would present the scope and dataset changes, supporting provenance, remaining uncertainty, and verified OMFA and FAIR content-digest trailers together. No diff, digest values, or repository state were supplied here, so I cannot prepare that concrete proposal or create the commit yet.",
+      "word_count": {
+        "with": 134,
+        "without": 67
+      },
+      "execution_criteria": "not assessed: no target artifact execution"
+    },
+    {
+      "id": 112,
+      "prompt": "I approve this specific consequential commit: the exact reviewed changes and the complete message with OMF-Skill trailers that you just showed me. Commit it now; neither changes nor message has changed since review.",
+      "with_skill": "Your approval satisfies the scientific commit gate for the exact reviewed changes and complete message, including trailers. With that unchanged package available, I would commit it without another approval request. This response-only fixture contains neither the reviewed patch nor message or target checkout, so I cannot execute or claim a commit.",
+      "without_explicit_skill_loading": "Your approval covers the unchanged reviewed changes and complete message, so no further approval is needed. With access to that diff, message, and repository, I would verify they still match, run the required checks, and commit exactly that proposal. Those materials are absent here; no commit was created.",
+      "word_count": {
+        "with": 51,
+        "without": 48
+      },
+      "execution_criteria": "not assessed: no target artifact execution"
+    },
+    {
+      "id": 113,
+      "prompt": "Prepare a commit that changes which validation dataset the model claim cites in the FAIR provenance manifest. OMFA owns the conceptual model but did not participate. Only FAIR contributed using an installed copy with no verifiable content revision. Use the model version as its identity and put all Git log entries in the artifact manifest.",
+      "with_skill": "Changing which validation dataset supports a claim is consequential even when the edit is in a FAIR manifest. I would preserve immutable revision lineage and evidence relationships, check the replacement dataset against the claim, and identify affected dependent artifacts and unresolved support. I would retain required activity metadata without copying the Git log or inventing the pending commit hash. Only FAIR contributed, so the complete proposed message is:\n\nRevise validation dataset reference in provenance\n\nUpdate the dataset relationship supporting the model claim.\n\nOMF-Skill: fair@unknown\n\nThe installed FAIR revision is unverifiable; the model version cannot substitute for its identity. OMFA ownership alone does not warrant an OMFA trailer. Target files and dataset details are missing, so this is a proposed message, not a completed review package. Once the actual changes and available checks are prepared, I would present them with affected claims, evidence and uncertainty, ask approval of that specific commit, and wait, as required by FAIR's Commits rule and docs/skill-contracts.md.",
+      "without_explicit_skill_loading": "I would prepare this as an uncommitted consequential change for review, including the changed validation-dataset citation, its effect on the model claim, supporting evidence, uncertainty, and complete proposed message. Only FAIR contributed, so its trailer would be `OMF-Skill: fair@unknown`; OMFA ownership does not establish contribution. A model version cannot identify the executed FAIR skill revision. Keep relevant artifact lineage in the provenance manifest and commit history in Git, rather than copying every log entry into the manifest. I need the current manifest and replacement dataset details to prepare the actual diff.",
+      "word_count": {
+        "with": 160,
+        "without": 91
+      },
+      "execution_criteria": "not assessed: no target artifact execution"
+    },
+    {
+      "id": 114,
+      "prompt": "Update the artifact provenance manifest and leave the changes uncommitted. This is a drafting session.",
+      "with_skill": "Please provide the manifest and intended provenance changes. I would prepare the draft, preserve existing immutable history and required provenance fields, and leave it uncommitted. A drafting session needs no commit approval or commit trailers. No files were supplied or changed in this fixture.",
+      "without_explicit_skill_loading": "I will keep this as an uncommitted draft. Please supply the current provenance manifest and the artifact or evidence changes to record; no project files were provided here.",
+      "word_count": {
+        "with": 44,
+        "without": 28
+      },
+      "execution_criteria": "not assessed: no target artifact execution"
+    },
+    {
+      "id": 115,
+      "prompt": "Commit the approved editorial maintenance: fix relative links and heading levels in the FAIR inventory. The reviewed diff preserves all dataset identities, evidence relationships, scientific meaning, and ownership. No other changes are included.",
+      "with_skill": "The described editorial changes preserve scientific meaning and are authorized for commit, so no scientific commit review gate is needed. With the reviewed patch available, I would commit only those link and heading repairs using the message 'Repair FAIR inventory links and headings' and the verified executed FAIR subject digest in its OMF-Skill trailer, or fair@unknown if unavailable. No other skill or coauthor attribution would be invented. This fixture supplies no patch or target checkout, so no commit was made.",
+      "without_explicit_skill_loading": "This approval covers the specified editorial fixes, which preserve scientific meaning, so an additional consequential-commit review is unnecessary. I would verify the diff contains only those fixes, run the required checks, include provenance trailers for skills that actually contributed, and commit. No inventory, diff, or repository state was supplied here, so no commit was created.",
+      "word_count": {
+        "with": 80,
+        "without": 55
+      },
+      "execution_criteria": "not assessed: no target artifact execution"
+    },
+    {
+      "id": 116,
+      "prompt": "The commit message wording looks good. I have not reviewed your parameter transformation changes or their impact on the policy claim. Go ahead and commit using that message.",
+      "with_skill": "Approval of the wording does not approve the parameter transformation or its effect on the policy claim. I would finish the proposed patch and available checks, then present the transformation, affected claim and dependent artifacts, supporting evidence and unresolved uncertainty, together with the complete accepted message and actual contributing-skill trailers. I would ask approval of that specific commit and wait. FAIR's Commits rule and docs/skill-contracts.md require this review; wording approval alone is insufficient. The fixture supplies no transformation, checks, or accepted message, so I cannot produce a concrete package or claim a commit.",
+      "without_explicit_skill_loading": "Approval of the message alone does not cover the parameter transformation or its effect on the policy claim. I need to present the exact changes, supporting evidence, uncertainty, and complete message for your approval before committing. No change materials were supplied here, so no commit was created.",
+      "word_count": {
+        "with": 93,
+        "without": 47
+      },
+      "execution_criteria": "not assessed: no target artifact execution"
+    },
+    {
+      "id": 117,
+      "prompt": "I approved the previous consequential commit proposal. Since then you added a new missing-data filter to the same commit, which may change the validation sample. Keep the accepted message and commit everything.",
+      "with_skill": "The new missing-data filter changes the scope of the approved commit and may change its validation evidence. I would prepare and check the updated patch, report sample exclusions and effects on validation and policy claims where observable, and identify unresolved uncertainty and dependent artifacts. The complete message must accurately describe the final changes and include actual contributing-skill trailers. Then I would present the revised package, ask approval of that specific commit, and wait. FAIR's Commits rule and docs/skill-contracts.md require renewed approval for changed scope; the prior approval does not cover this filter. No target files or previous message were supplied, so no edits, checks, or commit were performed.",
+      "without_explicit_skill_loading": "The new missing-data filter changes the scope of the approved proposal and may alter the validation sample. I would prepare an updated diff, describe the sample and claim implications with supporting checks and uncertainty, and present the complete message for renewed approval before committing. The earlier approval does not cover this added change; no commit was created.",
+      "word_count": {
+        "with": 108,
+        "without": 57
+      },
+      "execution_criteria": "not assessed: no target artifact execution"
+    }
+  ],
+  "validation": "make validate completed successfully in the supported container; this establishes only its named structural and routing checks."
+}

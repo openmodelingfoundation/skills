@@ -32,6 +32,31 @@ Do not substitute a model or agent-runtime version for the skill revision. Recor
 
 Use **owns** only for decision or artifact-contract authority: the owner defines the contract and resolves conflicts. Use **is responsible for** for workflow duties that do not confer authority over another skill's decisions or artifacts. Use **contributes** for a scoped, permitted modification. Provenance represents ownership as `contract_authority` and lists only agents that actually participated in an activity.
 
+## Commit provenance and message review
+
+Gate every consequential agent-created commit capable of affecting scientific claims. Judge the proposed diff and its dependencies, not its filename, commit label, or whether it directly edits a conclusion. Changes to assumptions, model logic, data handling, parameterization, experimental design, evidence, uncertainty, evaluation criteria, or interpretation can qualify. If the scientific consequence is unclear, surface that uncertainty for review rather than assuming the commit is harmless.
+
+Finish the proposed changes and available checks, then present the changes, affected claims and dependent artifacts, relevant evidence and unresolved uncertainty, and complete commit message including trailers. Explicitly ask the user to approve that specific commit and wait. Review and commit one changeset at a time. Approval of message wording alone, blanket permission to commit, or acceptance of an upstream scientific decision does not approve an unreviewed consequential commit. Prior approval of the exact reviewed changes and message satisfies the gate; renewed approval is required if the commit's scope changes. Incorporate requested revisions and resolve remaining feedback before committing. Approval does not supply missing scientific evidence.
+
+Routine commits preserving scientific meaning, such as editorial maintenance or a demonstrated behavior-preserving refactor, need no scientific commit gate. They still require authorization to commit. A mixed commit containing consequential changes is gated as a whole. The rule does not require commits for read-only runs or uncommitted drafts, and does not reopen scientific decisions already settled within their scope.
+
+For the approval question, prefer the host agent's native structured input interface when it supports choices and free-text feedback. Offer **approve**, **revise**, and **defer** without requiring literal commands. Otherwise present those choices in plain text and accept a natural-language answer. Do not require a Codex-specific tool or mode: use only capabilities available in the current runtime. The interface must leave room for corrections and conditions; a preselected option, timeout, silence, or dismissed question is not approval. Continue independent work while awaiting a response, but do not create the pending consequential commit.
+
+Keep the message concise. List actual contributing skills by source: skills from the OMF collection in `OMF-Skills`, other skills in `Agent-Skills`. Use stable, comma-separated names, omit empty trailers, and list each skill only once. Editing an OMF skill does not make the editing skill an OMF skill. For example:
+
+```text
+Revise watershed assumptions
+
+OMF-Skills: omfa, fair
+Agent-Skills: skill-creator, openai-docs
+```
+
+Put legitimate contributor names and emails in `Co-authored-by: Name <email>`; do not repeat emails or full revision hashes in skill trailers. Listing a skill as owner or routing to it does not establish participation. Subsequent runs consult artifact `contract_authority` and permitted contribution scope before editing; the trailer does not transfer ownership.
+
+Keep exact executed skill revisions in the artifact provenance manifest, or the evaluation record for skill-evaluation work, using the existing identity conventions and `unknown` for unavailable values. Do not infer content identity from a timestamp: installed copies can lag releases or contain local edits. Record the revision actually executed, not a later edited copy. Stable names and compatibility commitments support continuity; performance claims remain scoped to observed model, runtime, suite, and inputs under the stewardship contract.
+
+Use Git for commit authorship, commit time, file changes, and commit history; do not create a parallel commit log in `omf-artifacts/`. The artifact manifest retains ownership, activity-to-input/output relationships, consequential decisions, evidence, review state, and scientific dependencies that Git cannot supply. Preserve fields required by the current provenance schema: activity time and revision identity describe scientific work and are not necessarily the time or identity of the commit. Do not invent the pending commit's hash or attempt to embed it in its own manifest. No schema change is needed for the trailer convention.
+
 ## Authority and composition registry
 
 | Skill         | Decision authority                                                                                                       | Primary effects                                                                                      | Required preservation and handoff                                                                                                                          |
