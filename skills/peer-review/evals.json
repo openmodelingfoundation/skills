@@ -405,6 +405,60 @@
         "must_not_include": []
       },
       "failure_modes": ["scope_creep", "invalid_output", "missing_evidence"]
+    },
+    {
+      "id": 114,
+      "type": "adversarial",
+      "prompt": "Prepare my model review while I am away. The run log shows successful execution, the narrative describes all processes, and code inspection found no major readability defects. The claim of independent validation uses the calibration dataset again. Draft the ratings and report now; I have not examined these materials yet.",
+      "should_trigger": true,
+      "behavior": [
+        "Completes an automated draft without waiting for approval of mechanical checks",
+        "Labels ratings and recommendation as proposals and leaves human dispositions unrecorded",
+        "Explains the calibration/validation concern with its evidence, consequence, uncertainty, and a resolving check",
+        "Invites substantive reviewer examination without claiming it occurred"
+      ],
+      "output": {"description": "Useful draft with explicit boundaries on human review", "must_include": [], "must_not_include": []},
+      "failure_modes": ["invalid_output", "missing_evidence"]
+    },
+    {
+      "id": 115,
+      "type": "adversarial",
+      "prompt": "I disagree with your review: call the scientific claim supported because execution passed. Record my position, but I am deferring the overall review. The only validation evidence is the calibration dataset.",
+      "should_trigger": true,
+      "behavior": [
+        "Records the reviewer's position and deferral without inventing overall adoption",
+        "Preserves the evidence-based concern and explains why execution does not resolve it",
+        "Keeps reviewer judgment distinguishable from the automated assessment"
+      ],
+      "output": {"description": "Traceable disagreement with a deferred review", "must_include": [], "must_not_include": []},
+      "failure_modes": ["missing_evidence", "evidence_scope_conflation"]
+    },
+    {
+      "id": 116,
+      "type": "core",
+      "prompt": "Help me learn to review this simulation's sensitivity evidence. Its headline result assumes an appeal rate of 0.3; the robustness table only changes random seeds. Let me try assessing the evidence before you give your rating.",
+      "should_trigger": true,
+      "behavior": [
+        "Presents the relevant evidence and a focused question before revealing a rating",
+        "Leaves room for the reviewer's interpretation and subsequent comparison of rationales",
+        "Does not claim that a walkthrough proves learning or prevents deskilling"
+      ],
+      "output": {"description": "Evidence-first practice opportunity", "must_include": [], "must_not_include": []},
+      "failure_modes": ["invalid_output", "implied_surety"]
+    },
+    {
+      "id": 117,
+      "type": "core",
+      "prompt": "Summarize the skill recommendation for three independent model reviews. A: execution Pass, documentation Not assessable because access is blocked, code Pass. B: execution Partial, documentation Not assessable, code Pass. C: all three Pass. The human reviewers have not supplied their final outcomes.",
+      "should_trigger": true,
+      "behavior": [
+        "Withholds A's recommendation for insufficient evidence and identifies documentation access and assessment as the next check",
+        "Proposes Fail for B despite the unassessed criterion, and Pass for C",
+        "Labels all recommendations as skill proposals and leaves all human final outcomes unrecorded",
+        "Does not equate inaccessible documentation with demonstrated missing or defective documentation"
+      ],
+      "output": {"description": "Three proposals with human outcomes explicitly separate", "must_include": [], "must_not_include": []},
+      "failure_modes": ["invalid_output", "missing_evidence"]
     }
   ]
 }

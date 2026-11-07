@@ -4,10 +4,10 @@ skill:
   repository: https://github.com/openmodelingfoundation/skills
 subject-revision:
   algorithm: sha256-manifest-v1
-  digest: sha256:f7bd2bbfa661f891d22377164292477bc98b677328fb805ee3613d78366b5f81
+  digest: sha256:bbe8a42ce4569241782b5f56ef05e1610a807be9d293cfdbe2e2e4026420f037
   manifest:
   - path: SKILL.md
-    digest: sha256:a620f27f5df21ffa45e06fcc2a6f2f5d80afebb4ee844eeda22dc5a6079cae5d
+    digest: sha256:8f65c1f84905fa0a720aa22a689cfbcc1ecc77f7ec62c11720c1643b391bdaa8
   - path: assets/AUTHOR-RESPONSE-CHECKLIST-TEMPLATE.md
     digest: sha256:8ec2ec63cd05444f28350d26726d7a311b01e61c26f8b1d2063340f25cbff89d
   - path: assets/COMSES-REVIEWS-COMPRESSED.md
@@ -15,9 +15,9 @@ subject-revision:
   - path: assets/EVERSE-INDICATORS-COMPRESSED.md
     digest: sha256:bd7454937b1ba58f809c50d55437b2acef9fc42f7cdc11dd1a9103d5c4974442
   - path: assets/PEER-REVIEW-REPORT-TEMPLATE.md
-    digest: sha256:95088375b4493a9bc68e9d99da0a113581fcc88a5a9c46b8ed33aff638049b75
+    digest: sha256:fd74d54c41ae149aae137aee852e7dfd541d27e8aab8f5a7addfe6056edae956
   - path: references/PEER-REVIEW-CHECKLIST.md
-    digest: sha256:7dc420931207ba6538b3005ec595858f64331e465a6d70d384cd4179239c2523
+    digest: sha256:a4a3001244e393330ead04cef2e910b6b0f1d4eb28a9f1913070ead7feaf6905
   - path: references/README.md
     digest: sha256:1958a38b318e8337158d063d3c464f4135c18131300f34560b80e44981b2c082
   include-overrides: []

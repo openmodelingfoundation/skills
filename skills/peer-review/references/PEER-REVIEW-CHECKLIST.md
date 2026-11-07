@@ -22,10 +22,11 @@ Use it with the required-criteria rule in `../SKILL.md`:
 - Criterion 2: Documentation Thoroughness (required)
 - Criterion 3: Code Quality (required)
 
-Final decision is binary:
+The skill proposes a recommendation; the human reviewer owns the final outcome:
 
 - Pass: all three required criteria pass
 - Fail: any required criterion is partial or fail
+- Withhold recommendation — insufficient evidence: no required criterion is partial or fail, but at least one is not assessable. Identify the missing evidence and next check.
 
 ## Rating Scale
 
@@ -120,11 +121,12 @@ Apply `../SKILL.md` section 5a to central claims. Record the purpose, evidence b
 
 Use this final section in review reports:
 
-- Decision: Pass or Fail
+- Skill proposal: Pass, Fail, or Withhold recommendation — insufficient evidence
+- Human reviewer's final outcome and rationale: record only when supplied, separately from the proposal
 - Required criteria status summary: X/3 criteria passed
 - Rationale: concise evidence-based summary
 - Minimum checklist to reach pass: highest-impact actions first
 
 ## Scope Boundary Reminder
 
-The binary decision follows the three published CoMSES criteria. Scientific claim support is an additional, separately reported assessment; neither a CoMSES pass nor a claim-support rating certifies scientific validity.
+The skill's proposed Pass/Fail recommendation follows the three published CoMSES criteria and is withheld when the scoring rule requires more evidence. The human reviewer owns the final outcome. Scientific claim support is an additional, separately reported assessment; neither a CoMSES pass nor a claim-support rating certifies scientific validity.

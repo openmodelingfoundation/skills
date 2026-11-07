@@ -10,10 +10,11 @@ description: |
   "peer review my model", "is this model submission ready", "review codebase quality",
   "check reproducibility", "review ODD documentation", "assess FAIR/research software quality".
 
-  Expected output: structured peer review report with a binary recommendation
+  Expected output: structured peer review report with a proposed Pass/Fail recommendation
   limited to named baseline submission criteria, criterion-by-criterion findings,
   prioritized fixes, a separate assessment of scientific claim support, and an
   evidence-based checklist mapped to key EVERSE research software quality indicators.
+  Withhold the recommendation when evidence is insufficient; the human reviewer owns the final outcome.
 license: MIT
 compatibility: Works with Python, R, NetLogo, Julia, C/C++, and mixed-language model repositories
 metadata:
@@ -25,13 +26,13 @@ metadata:
 ## Skill Contract
 
 - **Activation:** Computational-model submission, release, repository, reproducibility, or research-software readiness review; not novelty adjudication or silent remediation.
-- **Authority:** Review criteria, evidence assessment, scoring, finding severity, and readiness recommendation.
+- **Authority:** Apply review criteria, gather evidence, and propose ratings, severity, and readiness recommendations; the human reviewer owns adoption of judgments and the submitted review.
 - **Preconditions:** An identifiable review target, declared review scope, available evidence, and explicit handling of inaccessible essentials.
 - **Effects:** Produce findings and reports under `omf-artifacts/review/` when persisted; do not modify assessed artifacts unless remediation is separately authorized.
 - **Invariants:** Preserve observed evidence, distinguish not-assessable from failure, apply the published scoring rule consistently, and never infer AI authorship from prose style.
-- **Outputs:** Binary CoMSES-criteria recommendation, separate scientific claim assessment, criterion-level ratings, evidence, prioritized findings, and remediation routes.
+- **Outputs:** Proposed CoMSES-criteria recommendation or explicit withholding, separate scientific claim assessment, criterion-level ratings, evidence, prioritized findings, and remediation routes; record the human reviewer's final outcome separately when supplied.
 - **Handoffs:** Route fixes to the affected artifact owner, passing the criterion, evidence, severity, and expected verification; continue independent review where possible.
-- **Completion:** Every in-scope CoMSES criterion and central scientific claim has an evidence-based rating or an explicit not-assessable basis; the binary recommendation follows the three-criterion scoring rule.
+- **Completion:** Every in-scope CoMSES criterion and central scientific claim has an evidence-based rating or an explicit not-assessable basis; the proposed recommendation or withholding follows the three-criterion scoring rule. Completing the automated assessment does not finalize the human review.
 - **Failure:** Issue a constrained review when evidence is missing and never infer a pass from absence of evidence.
 - **Provenance:** Record persisted review reports and review assertions as immutable activities without rewriting earlier findings or dispositions.
 - **Commits:** Before a commit that could affect scientific claims, present its changes, affected claims, evidence, uncertainty, and full message; request approval of that specific commit and wait. Review one commit at a time. Wording approval alone is insufficient; prior approval covers only unchanged reviewed changes and message. Routine meaning-preserving commits still need authorization but no scientific gate. Prefer native approve/revise/defer choices with free-text feedback; otherwise use plain text. Defaults or silence are not approval. List actual contributing OMF skills in `OMF-Skills` and other contributing skills in `Agent-Skills`, using comma-separated names and omitting empty trailers. Preserve legitimate `Co-authored-by` attribution. Keep exact executed revisions and ownership in provenance; do not duplicate Git history. This rule does not itself authorize a commit.
@@ -61,17 +62,26 @@ Gather as many of these as available:
 
 ## Review Workflow
 
+### Reviewer agency and learning
+
+Automate evidence gathering, authorized execution checks, traceability, and drafting. Label automated ratings and recommendations as proposals until the reviewer explicitly adopts them; completing a draft does not require human approval, but do not present it as a human-reviewed report. Record which judgments the reviewer adopted, revised, or deferred, with their stated rationale and unresolved disagreements. Never invent reviewer assent or replace an evidence-based concern merely to agree with the reviewer.
+
+Make consequential findings inspectable: point to the relevant artifact or observed result, explain how it bears on the criterion or claim, and identify uncertainty and a check that could change the assessment. Invite the reviewer to examine the evidence and supply their own interpretation at these points, rather than offering only an approve button for the entire report. Group related judgments; do not gate every mechanical check.
+
+Offer an evidence-first walkthrough when the reviewer wants to learn or practice: present a selected evidence excerpt and a focused question, let them assess it, then compare their rationale with the proposed assessment. Respect requests for direct assistance; do not impose quizzes or withhold requested findings. This supports opportunities to practice judgment; it does not establish that reviewer learning or skill retention has improved.
+
 ### Required Scoring Rule
 
-Apply these rules before synthesizing any final decision:
+Apply these rules to the skill's proposed recommendation; the final review outcome always belongs to the human reviewer:
 
 - The three baseline review criteria are equally weighted and each is required:
   - Ease of Execution
   - Documentation Thoroughness
   - Code Quality
-- Final decision is binary:
+- Proposed recommendation:
   - **Pass:** all three baseline review criteria are rated Pass
   - **Fail:** any one of the three baseline review criteria is rated Partial or Fail
+  - **Withhold recommendation — insufficient evidence:** no criterion is Partial or Fail, but at least one is Not assessable. Name the missing evidence and next check; do not treat inaccessible evidence as a demonstrated defect.
 - Research software quality indicators support evidence and prioritization, but do not override required-criteria failures.
 - Scientific claim support is a separate assessment and does not change the three-criterion CoMSES score.
 
@@ -173,17 +183,18 @@ Policy note:
 
 ### 5a. Assess support for scientific claims
 
-Identify the model's purpose and central scientific claims. For each, follow observed data through assumptions, calibration, code, outputs, and inference. Distinguish results built into rules from results that arise from the model. Check whether claimed validation uses evidence independent of calibration, whether unmeasured model variables are treated as observed traits, and whether conclusions stay within the model's stated scope. For conceptual models, assess support for their stated purpose without demanding empirical fit they do not claim.
+Identify the model's purpose and central scientific claims. For each, follow observed data through assumptions, calibration, code, outputs, and inference. Distinguish results built into rules from results that arise from the model. Check whether claimed validation uses evidence independent of calibration, whether unmeasured model variables are treated as observed traits, and whether the scope and certainty of conclusions match the evidence. For conceptual models, assess support for their stated purpose without demanding empirical fit they do not claim.
 
-Assess whether sensitivity analysis is adequate for the claims: does it vary the uncertain inputs or structural assumptions that could change the main conclusion, over justified ranges, with stochastic variation and interactions considered where relevant? A fixed-seed rerun, numerical convergence check, or sweep of a peripheral parameter cannot by itself establish robustness. If sensitivity analysis is unnecessary, explain why; if needed but missing or too narrow, state which claim remains weakly supported and what test would help. Match the depth of review to the model's purpose and the consequences of error.
+Assess whether sensitivity analysis is adequate for the claims: does it vary the uncertain inputs or structural assumptions that could change the main conclusion, over justified ranges, with stochastic variation and interactions considered where relevant? A fixed-seed rerun or numerical convergence check tests implementation, not empirical adequacy; a sweep of a peripheral parameter cannot by itself establish robustness of the conclusion. If sensitivity analysis is unnecessary, explain why; if needed but missing or too narrow, state which claim remains weakly supported and what test would help. Match the depth of review to the model's purpose and the consequences of error.
 
-For each central claim, rate support as **Supported within tested scope** (the evidence addresses the claim as stated), **Qualified** (support depends on important unresolved assumptions or narrow tests), **Not supported by available evidence** (the cited evidence does not establish the claim), or **Not assessable** (essential material is unavailable). Give the basis and limits of each rating. State material concerns, their possible effect on the inference, and what would resolve them. A concrete documentation defect may also affect the documentation rating. Keep claim ratings outside the CoMSES score and seek domain review when specialized expertise is needed. Apply the same scrutiny regardless of authorship; writing style alone establishes neither AI involvement nor error.
+For each central claim, rate support as **Supported within tested scope** (the evidence addresses the claim as stated), **Qualified** (support depends on important unresolved assumptions or narrow tests), **Not supported by available evidence** (the cited evidence does not establish the claim), or **Not assessable** (essential material is unavailable). Give the basis and limits of each rating. State material concerns, their possible effect on the inference, and what would resolve them. A concrete documentation defect may also affect the documentation rating. Keep claim ratings outside the CoMSES score and **seek domain review when specialized expertise is needed**.
 
 ### 6. Synthesize Recommendation
 
 Produce:
 
-- CoMSES readiness recommendation: binary **Pass** or **Fail**
+- Proposed CoMSES readiness recommendation: **Pass**, **Fail**, or **Withhold recommendation — insufficient evidence**
+- Human reviewer's final outcome and rationale, only when explicitly supplied; preserve differences from the proposal
 - Severity-ranked findings:
   - Blocker
   - Major
@@ -196,6 +207,7 @@ Decision logic:
 
 - Return **Pass** only when all three baseline review criteria pass.
 - Return **Fail** if any baseline review criterion is partial or fail.
+- Otherwise withhold the recommendation if any required criterion is not assessable. A known Partial or Fail still supports a proposed Fail even when other criteria are not assessable.
 - Keep tests and CI as Major nonblocking findings unless they materially affect a required criterion.
 
 ## Required Output Format
@@ -241,4 +253,4 @@ Output:
 
 - Structured report with criterion ratings
 - Indicator table (pass/partial/fail/not assessable)
-- Binary recommendation (Pass or Fail) with prioritized fixes
+- Proposed recommendation (Pass/Fail, or withheld for insufficient evidence) with prioritized fixes; human outcome recorded separately

@@ -2,10 +2,11 @@
 
 Use this template to produce standardized peer-review outputs for computational model readiness.
 
-The final recommendation must follow required-criteria logic:
+The skill's proposed recommendation follows required-criteria logic; the human reviewer owns the final outcome:
 
 - Pass only if all three baseline review criteria pass.
 - Fail if any required criterion is Partial or Fail.
+- Withhold recommendation for insufficient evidence if no criterion is Partial or Fail and at least one is Not assessable.
 
 ---
 
@@ -16,6 +17,10 @@ The final recommendation must follow required-criteria logic:
 - Submission type:
 - Materials reviewed:
 - Constraints and missing artifacts:
+- Review status: Automated draft | Partially reviewed | Human-reviewed
+- Review contributions: What automation examined and what the human reviewer examined:
+
+Ratings below are proposals unless explicitly adopted in the reviewer judgments section.
 
 ## Criterion 1: Ease of Execution
 
@@ -70,12 +75,24 @@ State the model's purpose. For each central claim, give its source, a support ra
 
 Keep this assessment separate from the CoMSES readiness score. Say when evidence was unavailable, and distinguish questions from demonstrated flaws.
 
-## CoMSES Readiness Recommendation
+## Proposed CoMSES Readiness Recommendation
 
-- Decision: Pass | Fail
+- Skill proposal: Pass | Fail | Withhold recommendation — insufficient evidence
 - Rationale:
 - Required criteria status summary (3/3 required):
 - Minimum checklist to reach pass:
+- Missing evidence and next check, if withheld:
+
+## Reviewer Judgments
+
+- Human reviewer's final outcome: Not yet supplied
+- Reviewer's stated rationale and any difference from the skill proposal:
+
+| Finding or judgment | Reviewer disposition (adopted/revised/deferred) | Reviewer's stated rationale and evidence examined | Unresolved disagreement or next check |
+| --- | --- | --- | --- |
+| | | | |
+
+Leave dispositions unrecorded until the reviewer supplies them. Identify the scope of any adoption; a blanket approval does not demonstrate independent examination of each finding.
 
 ## Scope Boundary Reminder
 
