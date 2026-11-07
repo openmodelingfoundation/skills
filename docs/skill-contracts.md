@@ -32,6 +32,12 @@ Do not substitute a model or agent-runtime version for the skill revision. Recor
 
 Use **owns** only for decision or artifact-contract authority: the owner defines the contract and resolves conflicts. Use **is responsible for** for workflow duties that do not confer authority over another skill's decisions or artifacts. Use **contributes** for a scoped, permitted modification. Provenance represents ownership as `contract_authority` and lists only agents that actually participated in an activity.
 
+### Displaying revision identifiers
+
+Use 12 hexadecimal characters for revision labels in human-facing summaries. For Git commits, use `git rev-parse --short=12 <revision>` so Git can extend the abbreviation when needed to distinguish objects currently in that repository. For skill content digests, show the algorithm and first 12 hexadecimal characters followed by an ellipsis, such as `sha256:8260f3a068e2…`. A digest prefix is a display label, not a uniqueness guarantee; lengthen it if displayed labels collide.
+
+Keep full Git object IDs and complete digests in machine-readable provenance, stewardship, and evaluation records. Link a shortened label to its full identity when practical; never use it as the canonical identifier. This display convention does not change the compact skill-name commit trailers.
+
 ## Commit provenance and message review
 
 Gate every consequential agent-created commit capable of affecting scientific claims. Judge the proposed diff and its dependencies, not its filename, commit label, or whether it directly edits a conclusion. Changes to assumptions, model logic, data handling, parameterization, experimental design, evidence, uncertainty, evaluation criteria, or interpretation can qualify. If the scientific consequence is unclear, surface that uncertainty for review rather than assuming the commit is harmless.

@@ -111,6 +111,10 @@ this record.
 
 ## Revision identity
 
+Keep complete identifiers in serialized records. Human-facing summaries may use
+the [12-character display convention](skill-contracts.md#displaying-revision-identifiers);
+abbreviations do not replace the full identities defined below.
+
 ### Subject revision
 
 `subject-revision` identifies the behavior-affecting content evaluated by a
