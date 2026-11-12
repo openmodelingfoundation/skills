@@ -9,7 +9,7 @@ is the [Open Science Assistant resource page](https://www.openmodelingfoundation
 | [open-science-agent.md](open-science-agent.md)               | Research packaging assistant       | 0.11 draft      |
 | [open-science-audit-report.md](open-science-audit-report.md) | Audit report template              | 0.11 draft      |
 | [open-science-tutor.md](open-science-tutor.md)               | Practice tutor                     | 0.12 draft      |
-| [open-science-sandbox.md](open-science-sandbox.md)           | Computational model sandbox runner | 0.1 draft       |
+| [open-science-sandbox.md](open-science-sandbox.md)           | Computational model sandbox runner | 0.2 draft       |
 
 Packaging assistant and audit template version 0.11 clarify assessment scope,
 tooling boundaries, stewardship and outcome-based adequacy. Tutor version 0.12
@@ -17,6 +17,8 @@ adds learning from existing strengths, transfer and maintenance checks, and
 recognition of explicit authorized scientific decisions. It accompanies
 packaging assistant version 0.11 and retains the practical Git instruction
 introduced in tutor version 0.11.
+Sandbox version 0.2 adds execution-facility inspection, clarifies the trusted
+controller boundary and specifies stochastic comparison targets.
 The tutor requires the packaging assistant; audits use the report template.
 The sandbox prompt remains independent. These are experimental instructions,
 not certifications of scientific quality or execution security.

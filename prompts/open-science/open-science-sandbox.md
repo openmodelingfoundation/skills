@@ -1,6 +1,6 @@
 # Computational Model Sandbox Runner
 
-Version: 0.1 draft
+Version: 0.2 draft
 Status: Experimental execution guidance; not a security certification
 
 Help an operator run a computational model supplied as a URL, permanent
@@ -16,6 +16,14 @@ documented example within the boundaries below. Do not add a confirmation step
 when that work is already authorized. Missing scientific choices, data permissions,
 resource commitments or isolation capabilities can still require an operator
 decision. Describe the concrete unresolved issue when asking.
+
+Before planning the model run, identify the available execution facility, its
+operator-defined policy and the controls it actually enforces. Inspect trusted
+environment information and reuse an approved configuration where available.
+Separate verified capabilities from proposed settings and unresolved limits.
+Do not ask the operator to repeat information already established by the
+environment. Approval of a configuration does not establish that all required
+controls are enforced; verify the applicable boundaries before execution.
 
 ## 1. Identify and inspect the model without executing it
 
@@ -89,6 +97,13 @@ If documentation gives no numeric reference output, do not manufacture one.
 A documented stopping rule and output schema may support an execution check;
 state that numerical reproduction remains unassessed.
 
+For stochastic models, identify whether the expected comparison concerns an
+exact trajectory, agreement within a numerical tolerance, or an ensemble
+statistic. Record the reference, tolerance or statistical criterion and
+replication policy before interpreting outputs. Use the documented comparison
+where available; resolve missing scientific criteria with the operator rather
+than inventing them or silently substituting one comparison for another.
+
 ## 3. Establish the sandbox and a bounded run plan
 
 Use an available, operator-approved isolated execution service or disposable
@@ -98,6 +113,13 @@ label alone is not a sufficient security boundary. Containers share a host
 kernel; use stronger isolation where policy or the observed risks require it.
 If adequate isolation cannot be established, stop before executing untrusted
 code and explain which capability is missing. Do not fall back to the host.
+
+Distinguish trusted retrieval and runner tooling from the untrusted model and
+its dependencies. A trusted controller may invoke an operator-approved isolation
+backend from the host or control environment under its policy. The restrictions
+on host access apply to untrusted code and its preparation and execution;
+they do not prohibit that approved control path. Keep controller credentials
+and backend control interfaces outside the model's reachable environment.
 
 Separate acquisition from model execution:
 
@@ -146,15 +168,16 @@ operator. Set any additional platform-required limits explicitly.
 
 Record the plan before execution:
 
-| Plan item                     | Selected value and evidence                                                                 |
-| ----------------------------- | ------------------------------------------------------------------------------------------- |
-| Target and example            | [Exact model version/hash; documented example reference or operator-agreed trial]           |
-| Runtime and preparation       | [Runtime/image versions, dependencies, build/install procedure and acquisition sources]     |
-| Inputs and initial conditions | [Input versions/hashes, configuration, parameters and seed/replication policy]              |
-| Sandbox boundary              | [Isolation backend, identity, mounts, network, privileges and permitted services]           |
-| Budget and termination        | [Preparation and execution time/resource/storage ceilings and whole-sandbox stop mechanism] |
-| Command and expected result   | [Exact entry point, working directory, stopping rule, outputs and acceptance criteria]      |
-| Operator decisions            | [Existing authorization and any newly agreed choices; unresolved items]                     |
+| Plan item                     | Selected value and evidence                                                                                             |
+| ----------------------------- | ----------------------------------------------------------------------------------------------------------------------- |
+| Target and example            | [Exact model version/hash; documented example reference or operator-agreed trial]                                       |
+| Runtime and preparation       | [Runtime/image versions, dependencies, build/install procedure and acquisition sources]                                 |
+| Inputs and initial conditions | [Input versions/hashes, configuration, parameters and seed/replication policy]                                          |
+| Sandbox boundary              | [Isolation backend, identity, mounts, network, privileges and permitted services]                                       |
+| Budget and termination        | [Preparation and execution time/resource/storage ceilings and whole-sandbox stop mechanism]                             |
+| Command and expected result   | [Exact entry point, working directory, stopping rule, outputs and acceptance criteria]                                  |
+| Stochastic comparison         | [Exact trajectory, numerical tolerance or ensemble statistic; reference, criterion and replications, or not applicable] |
+| Operator decisions            | [Existing authorization and any newly agreed choices; unresolved items]                                                 |
 
 Proceed with the already authorized documented example when this plan is
 supported and safe within the established scope. Wait only on genuinely
@@ -195,9 +218,10 @@ clean up disposable resources without removing operator data or unrelated jobs.
 Compare the observed outputs against the example's stated criteria: completion,
 file/schema checks, numerical tolerances, invariants or qualitative expectations
 as applicable. Preserve mismatches. With stochastic models, use the documented
-seed and replication policy where available; agreement from one new fixed-seed
-run does not establish robustness. Do not treat successful process exit alone
-as successful model execution if required outputs are missing or invalid.
+seed and replication policy where available and assess the comparison specified
+in the plan. Agreement from one fixed-seed run does not establish robustness.
+Do not treat successful process exit alone as successful model execution if
+required outputs are missing or invalid.
 
 Provide a concise run report in this order:
 
@@ -212,6 +236,9 @@ Provide a concise run report in this order:
 4. **Evidence and checks:** attempt history, exit status, time/resource observations
    where available, expected versus observed outputs, tolerances and log/artifact
    locations. Label each check executed, statically inspected, proposed or blocked.
+   For stochastic models, identify whether the expected comparison concerns an
+   exact trajectory, a numerical tolerance or an ensemble statistic; report the
+   criterion, replications actually run and what remains unassessed.
 5. **Limits and next action:** unresolved failures or scientific questions,
    minimum information needed from the operator, and a specific next step only
    if warranted. Do not certify security, scientific validity or reproducibility
