@@ -1,0 +1,72 @@
+{
+  "record_type": "unfilled-evaluation-template",
+  "suite": "open-science-initial",
+  "suite_version": "0.2 draft",
+  "condition": "guidance",
+  "run_status": "not-assessed",
+  "date": null,
+  "evaluator": null,
+  "model": null,
+  "runtime": null,
+  "tools_and_settings": null,
+  "other_instructions": null,
+  "grader_and_procedure": null,
+  "run_caps": {
+    "seconds_per_agent_response": 300,
+    "tool_requests_per_case": 20,
+    "user_turn_policy": "scripted-messages-only"
+  },
+  "comparison_run_reference": null,
+  "input_source": {
+    "kind": "local-modified-tree",
+    "commit_containing_exact_inputs": null,
+    "base_commit": null,
+    "files": [
+      {
+        "repository_relative_path": null,
+        "sha256": null,
+        "retained_snapshot_path": null
+      }
+    ]
+  },
+  "cases": [
+    {
+      "case_id": null,
+      "status": "not-assessed",
+      "guidance_supplied_in_order": [],
+      "actual_user_messages_and_order": [],
+      "transcript_path": null,
+      "before_and_after_file_evidence": [],
+      "action_opportunity_and_logging_limits": null,
+      "criteria": [
+        {
+          "criterion_id": null,
+          "comparison_eligible": null,
+          "status": "not-assessed",
+          "observation": null,
+          "evidence_references": [],
+          "reason_if_unknown_or_not_assessed": "No behavioral run recorded.",
+          "independent_grader_ratings": [],
+          "adjudication": null
+        }
+      ],
+      "elapsed_seconds": null,
+      "agent_turns": null,
+      "tool_calls": null,
+      "deviations_from_case": []
+    }
+  ],
+  "grader_agreement": {
+    "status": "not-assessed",
+    "grader_identities": [],
+    "blinding_limits": null,
+    "criteria_with_two_decidable_ratings": null,
+    "exact_agreements_on_decidable_ratings": null,
+    "criteria_with_unknown_or_not_assessed_ratings": null,
+    "disagreement_record_reference": null
+  },
+  "exploratory_observations": [],
+  "limitations": [
+    "This is an unfilled template, not evidence of an executed evaluation."
+  ]
+}

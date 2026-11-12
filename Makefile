@@ -2,6 +2,7 @@
 PYTHON ?= python3
 SCRIPTS := scripts
 EVALS := evals
+FORMAT_FILES ?= *.md **/*.{md,json}
 
 CROSS_EVAL := $(EVALS)/cross-skills.json
 TOOLS_RUN := docker compose run --rm --entrypoint python3 tools
@@ -25,7 +26,7 @@ help:
 	@echo "  make validate-stewardship Validate skill stewardship records and subject digests"
 	@echo "  make refresh-stewardship  Refresh subject manifests after skill-content changes"
 	@echo "  make lint              Run static analysis (markdown lint on all *.md)"
-	@echo "  make format            Apply repository formatting (prettier on md/json)"
+	@echo "  make format            Apply repository formatting (set FORMAT_FILES to limit scope)"
 	@echo "  make clean             Remove generated artifacts"
 	@echo "  make report            Aggregate failure report from evals"
 	@echo ""
@@ -97,12 +98,12 @@ ci: validate
 # ---- formatting ----
 .PHONY: format
 format:
-	$(TOOLS_EXEC) 'prettier --write *.md **/*.{md,json}'
+	$(TOOLS_EXEC) 'prettier --write $(FORMAT_FILES)'
 
 # ---- linting ----
 .PHONY: lint
 lint:
-	$(TOOLS_EXEC) 'markdownlint-cli2 **/*.md'
+	$(TOOLS_EXEC) 'markdownlint-cli2 **/*.md "prompts/**/*.md"'
 
 # ---- clean ----
 .PHONY: clean

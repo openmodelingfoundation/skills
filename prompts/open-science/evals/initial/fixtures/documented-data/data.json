@@ -1,0 +1,5 @@
+[
+  {"record_id": "a", "length_mm": 12},
+  {"record_id": "b", "length_mm": null},
+  {"record_id": "c", "length_mm": 0}
+]

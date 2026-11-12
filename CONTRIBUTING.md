@@ -4,6 +4,12 @@ Thank you for contributing to this skills repository! This guide walks you throu
 
 Reviewable artifacts are the interfaces between skills. Skills should communicate by creating and consuming well-defined artifacts rather than by duplicating reasoning or directly depending on one another.
 
+Standalone prompts and report templates belong under `prompts/`, separately
+from installable skills. See [open science resources](prompts/open-science/README.md)
+for ownership and publication, and their [evaluation guidance](prompts/open-science/evals/README.md)
+for exact tested-file identity. Skill frontmatter and routing-evaluation
+requirements below apply to skills, not these standalone resources.
+
 ## Table of Contents
 
 1. [Before You Start](#before-you-start)

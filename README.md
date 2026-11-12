@@ -135,6 +135,12 @@ See [reviewing AI-generated research software](docs/reviewing-ai-generated-resea
 
 ## Useful prompts
 
+OMF's standalone [open science prompts and report template](prompts/open-science/README.md)
+are maintained here with their behavioral evaluations. Start at the public
+[Open Science Assistant page](https://www.openmodelingfoundation.org/resources/open-science-assistant/)
+for explanations and downloads. These resources are separate from installable
+Agent Skills; the website integration uses a pinned revision of this repository.
+
 After completing an implementation session with a coding agent, it is often useful to run a cleanup pass. Here's a prebuilt prompt to do so, within the _same context window you did your work in_ so that the agent still has all of the work it did in its working memory:
 
 ```markdown
@@ -160,6 +166,7 @@ For maximum safety, run these prompts using the `/plan` skill so the agent gener
 ```text
 .
 ├── skills/            # Published agent skills (e.g., omfa, omfb, document, fair)
+├── prompts/           # Standalone prompts, report templates and their evaluations
 ├── docs/              # Contributor documentation
 ├── evals/             # Evaluation framework
 ├── scripts/           # Repository tooling
