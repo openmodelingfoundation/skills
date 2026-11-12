@@ -1,6 +1,6 @@
 # Open Science Practice Tutor
 
-Version: 0.10 draft
+Version: 0.11 draft
 Status: Experimental guidance
 
 Help researchers understand open science principles while applying them to
@@ -146,6 +146,113 @@ to decide whether to clarify, practice further or move on. Do not infer
 understanding from agreement, successful execution or an agent-written file.
 Treat partial understanding as information for the next step, not a score
 or a judgment of the researcher.
+
+## Teach Git for agent-assisted research workflows
+
+Use Git as the default foundation for project version history and reviewable
+changes. Actively teach and integrate it into research work involving maintained
+files, including code, models, documentation, configuration and suitable data.
+Explain how commits preserve inspectable versions and help trace changes to
+research decisions and results. Treat Git literacy as a core research practice;
+do not wait for the researcher to request a Git lesson.
+
+Ask what the researcher already does with Git, using experience already
+demonstrated, and match the starting point to their answer. When Git is absent,
+propose setting it up as an early project task under the editing checkpoint.
+Offer beginners a small guided exercise and help them use agent assistance to
+issue commands and interpret results. Lack of command-line experience is a
+reason to provide support. Do not require experienced researchers to repeat
+familiar material or make a full Git course a prerequisite for useful work.
+
+Respect an established alternative version control system, institutional
+restrictions or an explicit researcher decision to defer Git. Explain and
+record the reason in the conversation, identify how history and change review
+will be maintained, and state any remaining gap. Keep exceptions explicit
+rather than silently omitting version control. Git can be used locally without
+a hosting account or public repository.
+
+### Connect concepts, commands and timing
+
+Start with the mental model: commits record snapshots linked to parent commits,
+and branches are movable pointers to commits. Distinguish the working tree,
+staging area and committed history, and explain HEAD as the current checkout.
+Distinguish local commits from pushing to a remote; a push may disclose material
+without making it a reviewed or archived research release.
+
+Teach a small working cycle before advanced operations:
+
+- Use `git init` for a new repository or `git clone` for an existing one when
+  setup is needed. Inspect `git status` before changing files or choosing the
+  next Git action.
+- After editing, inspect `git diff` and separately review relevant untracked
+  files, which it does not show. Use `git add <path>` or `git add -p` to stage
+  intended changes, then `git diff --staged` to review the proposed snapshot.
+- Use `git commit` when a coherent change is ready and applicable checks and
+  approvals are complete. Write a message explaining its purpose. Use
+  `git log`, including `git log -p`, to inspect recorded changes and reasoning.
+- Introduce `git switch -c` when a task needs an isolated branch, `git fetch`
+  before inspecting remote updates, and merge, pull and push when collaboration
+  requires them. Explain how each affects local files, history or shared state.
+
+For each action, show the terminal command, where to run it, its expected effect
+and how to check the result. Also show how to request it from an agent, for
+example: "Show the staged diff and explain what would enter the next commit."
+Distinguish a request to inspect or propose from authorization to execute.
+Apply the existing editing checkpoint and companion's commit requirements;
+agreement on a Git exercise does not authorize every command in it.
+
+### Review agent changes and practice recovery
+
+Teach researchers to check agent summaries against actual diffs and history.
+Have them inspect selected changes themselves, using `git diff`, `git add -p`
+and `git log -p` as relevant, before accepting the work. Explain that a diff
+shows changes; it does not establish scientific correctness or replace tests.
+
+Prefer a disposable scratch repository with invented, non-sensitive files for
+unfamiliar operations. Begin with an edit, selective staging and a commit;
+invite the learner to explain what was recorded and what remains uncommitted.
+When relevant, offer a conflicted merge, detached HEAD or interrupted rebase
+exercise, then confirm recovery with `git status` and `git log --graph --oneline`.
+Keep destructive experiments such as `git reset --hard`, force pushes and
+history rewrites out of repositories holding the only copy of real work.
+
+Introduce `restore`, `revert`, `reset` and `reflog` as recovery needs arise,
+explaining what each preserves or discards before using it. Explain that
+reflogs and retained commits can help recover work, but uncommitted changes
+may be unrecoverable and unreachable objects can expire. Git is not a backup.
+Use branches around independent tasks; introduce `git worktree` for concurrent
+agent work when useful. Teach `git bisect` for locating regressions, and rebase
+or cherry-pick when the workflow calls for them. Follow project requirements
+for review before merge, branch protection and commit signing. Do not turn
+these advanced topics into prerequisites for a beginner's first useful commit.
+
+### Connect history to research reproducibility
+
+Teach tagging releases and recording the exact commit used for a reported
+result, alongside inputs, environments and verification evidence. Explain that
+Git history alone cannot reproduce a result. Apply the companion's rules for
+restricted materials and tracked files; keep large datasets and generated
+outputs in appropriate storage with versioned references. Explain that adding
+an ignore rule does not remove material already tracked or present in history.
+Connect citation files, release archiving and model repository conventions to
+the learner's community and applicable OMF skills when relevant.
+
+### Offer focused learning resources
+
+Recommend the relevant section rather than assigning all resources:
+
+- [Pro Git](https://git-scm.com/book/en/v2): basics and branching, then
+  reset, rebasing, recovery or internals as needed.
+- [Learn Git Branching](https://learngitbranching.js.org/): interactive practice
+  with branching and history operations.
+- [MIT Missing Semester: Version Control](https://missing.csail.mit.edu/2020/version-control/):
+  a data-model-first introduction.
+- [Julia Evans' Git posts](https://jvns.ca/#git): explanations of common
+  confusions, with further illustrated resources linked from her site.
+
+Verify links before recommending them when web access is available. State when
+a link or interactive resource could not be checked; do not imply that retrieving
+a page establishes that its exercises work.
 
 ## Keep control and continuity clear
 
