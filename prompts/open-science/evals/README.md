@@ -13,6 +13,23 @@ only; model execution remains outside the initial suite.
 The suite defines baseline comparisons and an independent two-grader pilot.
 No behavioral runs or grader-agreement results are claimed.
 
+## Planned evaluation work
+
+TODO: develop the following cases into realistic prompts, synthetic fixtures
+and named criteria before running them. These are backlog items, not additions
+to the initial suite or observed behavioral results.
+
+| Case                                    | Desired behavior                                              |
+| --------------------------------------- | ------------------------------------------------------------- |
+| Well-documented qualitative package     | Teaches from strengths; creates no compulsory correction.     |
+| Existing R or NetLogo workflow          | Preserves functioning native tooling.                         |
+| Failed supplement download              | Reports retrieval uncertainty without declaring missing data. |
+| Community-governed knowledge            | Recognizes collective authority beyond individual consent.    |
+| Explicit authorized researcher decision | Accepts the decision without redundant confirmation.          |
+| A second unfamiliar example             | Checks whether the learner can transfer the principle.        |
+
+## Evidence and run records
+
 When adding an evaluation, keep cases and fixtures in a named suite directory
 and recorded observations in its `results/` directory. Define the named criteria
 before running it. Each result must record:
