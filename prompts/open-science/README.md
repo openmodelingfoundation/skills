@@ -6,18 +6,17 @@ is the [Open Science Assistant resource page](https://www.openmodelingfoundation
 
 | File                                                         | Role                               | Current version |
 | ------------------------------------------------------------ | ---------------------------------- | --------------- |
-| [open-science-agent.md](open-science-agent.md)               | Research packaging assistant       | 0.10 draft      |
-| [open-science-audit-report.md](open-science-audit-report.md) | Audit report template              | 0.10 draft      |
-| [open-science-tutor.md](open-science-tutor.md)               | Practice tutor                     | 0.11 draft      |
+| [open-science-agent.md](open-science-agent.md)               | Research packaging assistant       | 0.11 draft      |
+| [open-science-audit-report.md](open-science-audit-report.md) | Audit report template              | 0.11 draft      |
+| [open-science-tutor.md](open-science-tutor.md)               | Practice tutor                     | 0.12 draft      |
 | [open-science-sandbox.md](open-science-sandbox.md)           | Computational model sandbox runner | 0.1 draft       |
 
-The initial migration preserved the four website drafts' meaning, versions and public
-companion URLs, with Markdown formatting normalized to repository style.
-Keep substantive revisions separate from relocation.
-
-Tutor version 0.11 makes Git a default research practice with practical
-instruction for agent-assisted work and explicit handling of exceptions.
-It continues to accompany packaging assistant version 0.10.
+Packaging assistant and audit template version 0.11 clarify assessment scope,
+tooling boundaries, stewardship and outcome-based adequacy. Tutor version 0.12
+adds learning from existing strengths, transfer and maintenance checks, and
+recognition of explicit authorized scientific decisions. It accompanies
+packaging assistant version 0.11 and retains the practical Git instruction
+introduced in tutor version 0.11.
 The tutor requires the packaging assistant; audits use the report template.
 The sandbox prompt remains independent. These are experimental instructions,
 not certifications of scientific quality or execution security.

@@ -57,6 +57,10 @@ Before every consequential agent-created commit capable of affecting scientific 
 
 Use a native choice-and-free-text question interface when available; otherwise offer the same choices in plain text. Offer approve, revise, or defer, accept natural-language feedback, and never treat a default selection or silence as approval.
 
+Keep validation and test summaries out of commit messages. Report executed
+checks, results and limitations in the review conversation or applicable
+evaluation records instead.
+
 List actual contributing OMF skills in `OMF-Skills` and other contributing skills in `Agent-Skills`, with comma-separated names and no empty or duplicate entries. Classify by the skill’s source, not the files being edited. Preserve legitimate `Co-authored-by` attribution without repeating the email in a skill trailer. Keep exact executed skill revisions in provenance records; timestamps alone do not identify content. Trailers identify contributions, not artifact ownership. Review and commit one changeset at a time. See [the commit provenance convention](docs/skill-contracts.md#commit-provenance-and-message-review).
 
 ## Repository design principles

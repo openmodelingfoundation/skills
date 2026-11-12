@@ -1,6 +1,6 @@
 # Open Science Audit Report Template
 
-Version: 0.10 draft
+Version: 0.11 draft
 Status: Experimental guidance; not an OMF certification or scoring standard
 
 Use with the Open Science Research Packaging Assistant:
@@ -11,15 +11,22 @@ model, dataset or research package. Keep the numbered sections below for
 consistency; scale their detail to the research and assessed purpose. Replace
 the instructions and placeholders with findings. Do not create empty artifacts,
 invent deficiencies or recommend work just to fill the template.
+Retain all seven headings, but allow a one-line section where nothing
+consequential needs discussion. Omit unused tables and placeholder rows.
 
 Distinguish an obligation established by a cited policy, a requirement for the
 assessed purpose, and an optional good practice. Do not impose software
 requirements on work without executable code. Restricted access can be
-appropriate; assess whether conditions and an authorized access route are clear.
+appropriate; assess the documented conditions and any applicable access route.
+Distinguish an author's stated reason for restriction from records inspected
+and checks performed. Reporting that reason does not establish that consent
+records were examined or that the restriction's sufficiency was verified.
 
 ## 1. Verdict and scope
 
 - **Target:** title, authors, publication/release identifier and exact version.
+- **Perspective:** external reader or internal author/collaborator; available
+  evidence and authority to make changes.
 - **Assessed purpose:** for example, understanding methods, inspecting evidence,
   running a model, reproducing named results or adapting code/data.
 - **Verdict:** adequate, partly adequate or not adequate **for that purpose**;
@@ -34,6 +41,11 @@ Do not replace this verdict with a submission-eligibility grade, aggregate
 FAIR score or claim of scientific validity. If a formal review was requested,
 report its named rubric and decision separately from this audit.
 
+Define adequacy by the outcome supported. For qualitative work, transparency
+may enable examination of how evidence supports an interpretation without
+requiring another analyst to derive identical themes. Assess that stated
+outcome rather than imposing computational repetition as a universal criterion.
+
 ## 2. Supporting-material inventory and access
 
 Follow the publication's availability statements, supplement links and
@@ -45,11 +57,17 @@ separately, including data bundled with code or inside supplements.
 | -------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------- | --------------------------------------------- |
 | [Code, inputs, processed data, qualitative coding, documentation, experiments, outputs or other applicable material] | [Release, path, supplement page/table; distinguish inspected from referenced-only] | [DOI, accession or stable URL; public, managed, restricted, unavailable or unknown; citation and applicable rights] | [Concrete supported task and any scope limit] |
 
-Answer explicitly: **Are the data underlying the assessed results available
-at a permanent URL?** Distinguish complete, partial, unavailable and unknown
-coverage. A code deposit containing its inputs can answer yes; a paper DOI or
-data-availability statement alone does not establish that the inputs are there.
-Do not demand a separate data DOI when an existing deposit serves the purpose.
+Where underlying data exist, identify their persistent record and access
+arrangements, including bundled or managed-access materials. Where release
+is inappropriate, assess the available explanation and any appropriate
+metadata or custodian route. Mark not applicable where no separate dataset
+is indicated. Do not infer that a public access route must exist.
+
+Distinguish complete, partial, unavailable and unknown coverage, and label
+restrictions as documented or independently checked, stating the evidence for
+any check. A paper DOI or availability statement alone does not establish that
+inputs are deposited. Do not demand a separate data DOI when an existing
+deposit containing the inputs serves the assessed purpose.
 
 ## 3. Assessment of open-science practices
 
@@ -60,7 +78,7 @@ not an automatic pass/fail calculation. Inaccessibility is not proof of absence.
 | Area                                     | Status   | Evidence and implication for the assessed purpose                                                                                    |
 | ---------------------------------------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------ |
 | Findability and preservation             | [Status] | [Publication links, persistent access, identifiable code/data versions]                                                              |
-| Access, attribution and reuse conditions | [Status] | [Actual access route, citation, component-specific rights and justified restrictions]                                                |
+| Access, attribution and reuse conditions | [Status] | [Applicable access arrangements, citation, component-specific rights; stated restriction reasons and any checks performed]           |
 | Data interpretation and provenance       | [Status] | [Sources, collection context, field/code definitions, units, exclusions, transformations and missing values]                         |
 | Code inspection and execution            | [Status] | [Available source, dependencies/runtime, commands, inputs and consequential implementation issues]                                   |
 | Methods and result traceability          | [Status] | [Inputs → computational or manual analysis → named outputs; settings, seeds/replications or qualitative coding rules where relevant] |
